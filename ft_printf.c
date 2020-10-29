@@ -1,15 +1,9 @@
-#include "header/ft_printf.h"
-#include "SRCS/ft_functions.c"
-#include "SRCS/d_flag.c"
-#include "SRCS/prn_d.c"
-#include "SRCS/prn_d_2.c"
-#include "SRCS/prn_d_3.c"
-#include "SRCS/arg_d.c"
-#include "SRCS/moins_d.c"
-#include "SRCS/moins_d2.c"
-#include "SRCS/moins_d3.c"
-#include "SRCS/moins_d4.c"
-#include "SRCS/plus_d.c"
+#include "ft_printf.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c ,1);
+}
 
 char	find_type(char *str)
 {
@@ -73,19 +67,10 @@ int		ft_printf(const char *format, ...)
 		else
 		{
 			ret += ft_tri(str, args);
-			//printf("ret de sortie : %d\n",ret);
 			lgt_flag = get_lgth_flag(str);
-			//printf("lgt_flag de sortie : %d\n",lgt_flag);
 			str += lgt_flag + 1;
 		}
 		str++;
 	}
 	return (ret);
-}
-
-int main(void)
-{
-	printf(" ->[%d]\n", printf("|%-3.*d|", -4, -0));
-	printf(" ->[%d]\n", ft_printf("|%-3.*d|", -4, -0));
-	return (0);
 }
