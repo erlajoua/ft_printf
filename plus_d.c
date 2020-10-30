@@ -1,14 +1,18 @@
 #include "ft_printf.h"
 
-int	bpos_zero(int before)
+int	bpos_zero(int before, char *str)
 {
 	int ret;
 
 	ret = before;
 	if (before == 0)
 		ret = 1;
-	while (before-- > 1)
-		ft_putchar(' ');
+	if (!is_zero_before_d(str))
+		while (before-- > 1)
+			ft_putchar(' ');
+	else
+		while (before-- > 1)
+			ft_putchar('0');
 	ft_putchar('0');
 	return (ret);
 }
@@ -97,7 +101,7 @@ int     plus_d(char *str, va_list args)
     else
     {
     	if (number == 0)
-    		ret = bpos_zero(nb);
+    		ret = bpos_zero(nb, str);
     	else
 		ret = bpos_else(nb, number);
     }

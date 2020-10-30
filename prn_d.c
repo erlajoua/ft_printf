@@ -128,11 +128,11 @@ int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 	int nb_sp;
 	int len;
 	int ret;
-
+	
 	nb = va_arg(args, int);
 	if (nb == 0)
-		return (bpos_zero(before));
-	len = int_lgth(nb); //3
+		return (bpos_zero(before, "666d")); //je devrais passer str pour is_zero_before_d
+	len = int_lgth(nb); //2
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
@@ -144,6 +144,8 @@ int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 		ft_putchar('-');
 	while (nb_sp-- > 0)
 		ft_putchar(c);
+	if (c == ' ' && nb < 0)
+		ft_putchar('-');
 	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
 	return (ret);
 }

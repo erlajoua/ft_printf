@@ -63,7 +63,7 @@ int tri_moins_d(char *str, va_list args);
 int     plus_d(char *str, va_list args);
 int		get_nbatoi_d(char *str);
 int	bpos_apos(int before, int after, va_list args);
-int	bpos_zero(int before);
+int	bpos_zero(int before, char *str);
 int	is_zero_before_d(char *str);
 int	special_zero(int before);
 
