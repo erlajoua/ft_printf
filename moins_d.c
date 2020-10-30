@@ -43,7 +43,6 @@ int tri_moins_d(char *str, va_list args)
 
     ret = 0;
     nb = get_nbatoi_d(str); //before - et 
-    //printf("nb : %d\n", nb);
     ret = bneg_aneg(nb, args);
-    return (ret + va_arg(args, int));
+    return (ret);
 }
