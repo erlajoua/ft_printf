@@ -69,12 +69,17 @@ int	bpos_zero_before(int before, int nb)
 
 	len = int_lgth(nb);
 	nb_zr = before - len;
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb_zr--;
+	}
 	if (nb_zr < 0)
 		nb_zr = 0;
 	ret = (nb < 0) ? len + nb_zr + 1 : len + nb_zr;
-	while (nb_zr-- > 0)
+		while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr(nb);
+	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
 	return (ret);
 }
 
