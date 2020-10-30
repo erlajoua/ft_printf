@@ -18,9 +18,10 @@ int	bpos_else(int before, int nb) //blue GDOC
 	int nb_zr;
 	int ret;
 
+	//nb 198 before 4
 	nb_sp = 0;
 	nb_zr = 0;
-	len = int_lgth(nb);
+	len = int_lgth(nb); //3
 	if (nb < 0) 
 		len++;
 	nb_sp = before - (nb_zr + len);
@@ -35,6 +36,47 @@ int	bpos_else(int before, int nb) //blue GDOC
 	return (ret);
 }
 
+int	is_in_string(char c)
+{
+	char *str;
+
+	str = "0123456789";
+	while (*str)
+	{
+		if (c == *str)
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
+int	is_zero_before_d(char *str)
+{
+	while (*str != 'd' && !is_in_string(*str))
+	{
+		if (*str == '0')
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
+int	bpos_zero_before(int before, int nb)
+{
+	int ret;
+	int nb_zr;
+	int len;
+
+	len = int_lgth(nb);
+	nb_zr = before - len;
+	if (nb_zr < 0)
+		nb_zr = 0;
+	ret = len + nb_zr;
+	while (nb_zr-- > 0)
+		ft_putchar('0');
+	ft_putnbr(nb);
+	return (ret);
+}
 
 int     plus_d(char *str, va_list args)
 {
@@ -44,9 +86,14 @@ int     plus_d(char *str, va_list args)
 
     number = va_arg(args, int);
     nb = get_nbatoi_d(str); //before - et
-    if (number == 0)
-    	ret = bpos_zero(nb);
+    if (is_zero_before_d(str))
+    	ret = bpos_zero_before(nb, number);
     else
-	ret = bpos_else(nb, number);
+    {
+    	if (number == 0)
+    		ret = bpos_zero(nb);
+    	else
+		ret = bpos_else(nb, number);
+    }
     return (ret);
 }

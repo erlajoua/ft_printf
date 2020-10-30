@@ -127,12 +127,17 @@ int	bpos_aneg(int before, va_list args) //blackGDOC not return
 	int ret;
 
 	nb = va_arg(args, int);
+	//fix dégueulasse :
+	if (nb == 0)
+		return (bpos_zero(before));
+	//
 	len = int_lgth(nb);
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
 	if (nb < 0)
 		nb_sp--;
+	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
