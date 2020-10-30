@@ -66,6 +66,8 @@ int	bneg_apos(int before, int after, va_list args) //rougeGDOC
 	nb_zr = 0;
 	nb_sp = 0;
 	nb = va_arg(args, int);
+	if (nb == 0 && after == 0)
+		return (special_zero(before));
 	len = int_lgth(nb);
 	if (before < 0)
 		before = -before;
@@ -147,6 +149,18 @@ int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 	return (ret);
 }
 
+int	special_zero(int before)
+{
+	int ret;
+	
+	if (before < 0)
+		before = -before;
+	ret = before;
+	while (before-- > 0)
+		ft_putchar(' ');
+	return (ret);
+}
+
 int	bpos_apos(int before, int after, va_list args) //blue GDOC
 {
 	int nb;
@@ -158,6 +172,8 @@ int	bpos_apos(int before, int after, va_list args) //blue GDOC
 	nb_sp = 0;
 	nb_zr = 0;
 	nb = va_arg(args, int);
+	if (nb == 0 && after == 0)
+		return (special_zero(before));
 	len = int_lgth(nb);
 	if (after >= len)
 		nb_zr = after - len; 

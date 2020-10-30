@@ -65,5 +65,6 @@ int		get_nbatoi_d(char *str);
 int	bpos_apos(int before, int after, va_list args);
 int	bpos_zero(int before);
 int	is_zero_before_d(char *str);
+int	special_zero(int before);
 
 #endif
