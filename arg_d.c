@@ -47,8 +47,15 @@ int		tri_arg_d(char *str, va_list args)
 	if (is_moins_before_c(str, '*') == 1 && arg > 0)
 		arg *= -1;
 	if (arg < 0)
+	{
 		ret = bneg_aneg(arg, args);
+	}
 	else
-		ret = bpos_aneg(arg, args, ' ');
+	{
+		if (is_zero_before_d(str))
+			ret = bpos_aneg(arg, args, '0');
+		else
+			ret = bpos_aneg(arg, args, ' ');
+	}
 	return(ret);
 }
