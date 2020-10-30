@@ -130,11 +130,8 @@ int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 	int ret;
 
 	nb = va_arg(args, int);
-	//fix dégueulasse :
 	if (nb == 0)
 		return (bpos_zero(before));
-	//
-	//printf("before : %d\n", before);
 	len = int_lgth(nb); //3
 	nb_sp = 0;
 	if (before >= len)
@@ -143,16 +140,18 @@ int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 		nb_sp--;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
+	if (c == '0' && nb < 0)
+		ft_putchar('-');
 	while (nb_sp-- > 0)
 		ft_putchar(c);
-	ft_putnbr(nb);
+	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
 	return (ret);
 }
 
 int	special_zero(int before)
 {
 	int ret;
-	
+
 	if (before < 0)
 		before = -before;
 	ret = before;

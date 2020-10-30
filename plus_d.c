@@ -5,6 +5,8 @@ int	bpos_zero(int before)
 	int ret;
 
 	ret = before;
+	if (before == 0)
+		ret = 1;
 	while (before-- > 1)
 		ft_putchar(' ');
 	ft_putchar('0');
@@ -18,7 +20,6 @@ int	bpos_else(int before, int nb) //blue GDOC
 	int nb_zr;
 	int ret;
 
-	//nb 198 before 4
 	nb_sp = 0;
 	nb_zr = 0;
 	len = int_lgth(nb); //3
