@@ -124,6 +124,7 @@ int	bpos_aneg(int before, va_list args) //blackGDOC not return
 	int nb;
 	int nb_sp;
 	int len;
+	int ret;
 
 	nb = va_arg(args, int);
 	len = int_lgth(nb);
@@ -132,10 +133,11 @@ int	bpos_aneg(int before, va_list args) //blackGDOC not return
 		nb_sp = before - len;
 	if (nb < 0)
 		nb_sp--;
+	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	ft_putnbr(nb);
-	return (666);
+	return (ret);
 }
 
 int	bpos_apos(int before, int after, va_list args) //blue GDOC
@@ -144,6 +146,7 @@ int	bpos_apos(int before, int after, va_list args) //blue GDOC
 	int len;
 	int nb_sp;
 	int nb_zr;
+	int ret;
 
 	nb_sp = 0;
 	nb_zr = 0;
@@ -154,13 +157,15 @@ int	bpos_apos(int before, int after, va_list args) //blue GDOC
 	if (nb < 0) 
 		len++;
 	nb_sp = before - (nb_zr + len);
+	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
+	ret = len + nb_sp + nb_zr;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	nb < 0 ? ft_putchar('-') : 0;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
 	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
-	return (666);
+	return (ret);
 }
 
 int	tri_before_positive(int before, int after, va_list args)
