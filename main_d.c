@@ -2,20 +2,20 @@
 
 int main(void)
 {
-	printf(" <- [%d]\n", ft_printf("|%*d|", 16, -10));
-	printf(" <- [%d]\n\n", printf("|%*d|", 16, -10));
+	printf(" <- [%d]\n", ft_printf("|%-20d|", 0));
+	printf(" <- [%d]\n\n", printf("|%-20d|", 0));
 
-	printf(" <- [%d]\n", ft_printf("|%20d|", 2));
-	printf(" <- [%d]\n\n", printf("|%20d|", 2));
+	printf(" <- [%d]\n", ft_printf("|%-20d|", -17));
+	printf(" <- [%d]\n\n", printf("|%-20d|", -17));
 
-	printf(" <- [%d]\n", ft_printf("|%-13.5d|", 1));
-	printf(" <- [%d]\n\n", printf("|%-13.5d|", 1));
+	printf(" <- [%d]\n", ft_printf("|%20d|", 7));
+	printf(" <- [%d]\n\n", printf("|%20d|", 7));
 
-	printf(" <- [%d]\n", ft_printf("|%11.11d|", 13));
-	printf(" <- [%d]\n\n", printf("|%11.11d|", 13));
+	printf(" <- [%d]\n", ft_printf("|%*d|", -14, 0));
+	printf(" <- [%d]\n\n", printf("|%*d|", -14, 0));
 
-	printf(" <- [%d]\n", ft_printf("|%*d|", -12, 20));
-	printf(" <- [%d]\n\n", printf("|%*d|", -12, 20));
+	printf(" <- [%d]\n", ft_printf("|%-*d|", 0, 11));
+	printf(" <- [%d]\n\n", printf("|%-*d|", 0, 11));
 
 	return (0);
 }

@@ -71,6 +71,7 @@ int	bneg_apos(int before, int after, va_list args) //rougeGDOC
 		before = -before;
 	if (after >= len)
 		nb_zr = after - len;
+	//nb_zr = (nb == 0) ? nb_zr + 1 : nb_zr;
 	nb_sp = before - (nb_zr + len);
 	if (nb < 0)
 		nb_sp--;
