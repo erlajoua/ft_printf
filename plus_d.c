@@ -40,7 +40,7 @@ int	is_in_string(char c)
 {
 	char *str;
 
-	str = "0123456789";
+	str = "123456789";
 	while (*str)
 	{
 		if (c == *str)
@@ -71,7 +71,7 @@ int	bpos_zero_before(int before, int nb)
 	nb_zr = before - len;
 	if (nb_zr < 0)
 		nb_zr = 0;
-	ret = len + nb_zr;
+	ret = (nb < 0) ? len + nb_zr + 1 : len + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
 	ft_putnbr(nb);

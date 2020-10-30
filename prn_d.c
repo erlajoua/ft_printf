@@ -119,7 +119,7 @@ int	tri_before_negative(int before, int after, va_list args)
 	return (ret);
 }
 
-int	bpos_aneg(int before, va_list args) //blackGDOC not return
+int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
 {
 	int nb;
 	int nb_sp;
@@ -131,7 +131,8 @@ int	bpos_aneg(int before, va_list args) //blackGDOC not return
 	if (nb == 0)
 		return (bpos_zero(before));
 	//
-	len = int_lgth(nb);
+	//printf("before : %d\n", before);
+	len = int_lgth(nb); //3
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
@@ -140,7 +141,7 @@ int	bpos_aneg(int before, va_list args) //blackGDOC not return
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
 	while (nb_sp-- > 0)
-		ft_putchar(' ');
+		ft_putchar(c);
 	ft_putnbr(nb);
 	return (ret);
 }
@@ -173,15 +174,22 @@ int	bpos_apos(int before, int after, va_list args) //blue GDOC
 	return (ret);
 }
 
-int	tri_before_positive(int before, int after, va_list args)
+int	tri_before_positive(char *str, int before, int after, va_list args)
 {
 	int ret;
 	
 	ret = 0;
 	if (after < 0)
-		ret = bpos_aneg(before, args);
+	{
+		if (is_zero_before_d(str))
+			ret = bpos_aneg(before, args, '0');
+		else
+			ret = bpos_aneg(before, args, ' ');
+	}
 	else
+	{
 		ret = bpos_apos(before, after, args);
+	}
 	return (ret);
 }
 
@@ -205,7 +213,7 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 	if (before < 0)
 		ret = tri_before_negative(before, after, args);
 	else
-		ret = tri_before_positive(before, after, args);
+		ret = tri_before_positive(str, before, after, args);
 	return (ret);
 }
 

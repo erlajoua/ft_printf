@@ -57,11 +57,13 @@ int is_moins_before_c(char *str, char c);
 int bneg_aneg(int before, va_list args);
 int bneg_apos(int before, int after, va_list args);
 int tri_before_negative(int before, int after, va_list args);
-int tri_before_positive(int before, int after, va_list args);
-int bpos_aneg(int before, va_list args);
+int tri_before_positive(char *str, int before, int after, va_list args);
+int bpos_aneg(int before, va_list args, char c);
 int tri_moins_d(char *str, va_list args);
 int     plus_d(char *str, va_list args);
 int		get_nbatoi_d(char *str);
 int	bpos_apos(int before, int after, va_list args);
+int	bpos_zero(int before);
+int	is_zero_before_d(char *str);
 
 #endif

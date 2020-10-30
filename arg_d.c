@@ -49,6 +49,6 @@ int		tri_arg_d(char *str, va_list args)
 	if (arg < 0)
 		ret = bneg_aneg(arg, args);
 	else
-		ret = bpos_aneg(arg, args);
+		ret = bpos_aneg(arg, args, ' ');
 	return(ret);
 }
