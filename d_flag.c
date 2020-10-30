@@ -28,8 +28,6 @@ int		d_flag(char *str, va_list args)
 		ret = tri_moins_d(str, args);
 	else
 		ret = plus_d(str, args);
-	/*else if (is_moins_d(str) == 2)
-		ret = moinsmoins_d(str, args);*/
 	return (ret); 
 }
 
