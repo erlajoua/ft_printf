@@ -122,16 +122,16 @@ int	tri_before_negative(int before, int after, va_list args)
 	return (ret);
 }
 
-int	bpos_aneg(int before, va_list args, char c) //blackGDOC not return
+int	bpos_aneg(int before, va_list args, char c, char *str) //blackGDOC not return
 {
 	int nb;
 	int nb_sp;
 	int len;
 	int ret;
-	
+
 	nb = va_arg(args, int);
 	if (nb == 0)
-		return (bpos_zero(before, "666d")); //je devrais passer str pour is_zero_before_d
+		return (bpos_zero(before, str)); //je devrais passer str pour is_zero_before_d
 	len = int_lgth(nb); //2
 	nb_sp = 0;
 	if (before >= len)
@@ -200,9 +200,9 @@ int	tri_before_positive(char *str, int before, int after, va_list args)
 	if (after < 0)
 	{
 		if (is_zero_before_d(str))
-			ret = bpos_aneg(before, args, '0');
+			ret = bpos_aneg(before, args, '0', str);
 		else
-			ret = bpos_aneg(before, args, ' ');
+			ret = bpos_aneg(before, args, ' ', str);
 	}
 	else
 	{
