@@ -10,11 +10,11 @@ int 	is_moins_arg_d(char *str, int arg);
 int		moins_arg_d1(va_list args, int arg);
 int		moins_arg_d2(va_list args, int arg);
 int		moins_arg_d3(va_list args, int arg);
-int		is_prn_d(char *str);
+int		is_prn_c(char *str, char c);
 int		tri_prn_d(char *str, va_list args);
 int		moins_d(char *str, va_list args);
 int		moinsmoins_d(char *str, va_list args);
-int		is_arg_d(char *str);
+int		is_arg_c(char *str, char c);
 int		get_int_moins(char *str);
 void	ft_putchar(char c);
 int 	plus_d(char *str, va_list args);
@@ -61,10 +61,12 @@ int tri_before_positive(char *str, int before, int after, va_list args);
 int bpos_aneg(int before, va_list args, char c, char *str);
 int tri_moins_d(char *str, va_list args);
 int     plus_d(char *str, va_list args);
-int		get_nbatoi_d(char *str);
+int		get_nbatoi_c(char *str, char c);
 int	bpos_apos(int before, int after, va_list args);
 int	bpos_zero(int before, char *str);
 int	is_zero_before_d(char *str);
 int	special_zero(int before);
+int	c_flag(char *str, va_list args);
+int	is_moins_c(char *str, char c);
 
 #endif

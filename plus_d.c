@@ -95,7 +95,7 @@ int     plus_d(char *str, va_list args)
     int number;
 
     number = va_arg(args, int);
-    nb = get_nbatoi_d(str); //before - et
+    nb = get_nbatoi_c(str, 'd'); //before - et
     if (is_zero_before_d(str))
     	ret = bpos_zero_before(nb, number);
     else

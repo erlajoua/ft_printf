@@ -1,20 +1,6 @@
 #include "ft_printf.h"
 
-int		is_moins_d(char *str)
-{
-	int i;
-
-	i = 0;
-	while(*str != 'd')
-	{
-		if(*str == '-')
-			i++;
-		str++;
-	}
-	return (i);
-}
-
-int		get_nbatoi_d(char *str)
+int		get_nbatoi_c(char *str, char c)
 {
 	int ret;
 	int moins;
@@ -23,7 +9,7 @@ int		get_nbatoi_d(char *str)
 	ret = 0;
     	while ((*(str + 1)) == '-')
         	str++;
-	while (*str != 'd')
+	while (*str != c)
 	{
 		if (*str == '-')
 			moins++;
@@ -42,7 +28,7 @@ int tri_moins_d(char *str, va_list args)
     int nb;
 
     ret = 0;
-    nb = get_nbatoi_d(str); //before - et 
+    nb = get_nbatoi_c(str, 'd'); //before - et 
     ret = bneg_aneg(nb, args);
     return (ret);
 }

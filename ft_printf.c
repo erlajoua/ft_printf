@@ -10,7 +10,7 @@ char	find_type(char *str)
 	int i;
 
 	i = 0;
-	while(str[i] != 'd')
+	while(str[i] != 'd' && str[i] != 'c')
 		i++;
 	return (str[i]);
 }
@@ -31,14 +31,15 @@ int		get_lgth_flag(char *str)
 int		ft_tri(char *str, va_list args)
 {
 	char type_flag;
-	int nb;
+	int ret;
 
-	nb = 0;
+	ret = 0;
 	type_flag = find_type(str);
-	//printf("type de flag en sortie : %c\n",type_flag);
 	if (type_flag == 'd')
-		nb = d_flag(str, args);
-	return (nb);
+		ret = d_flag(str, args);
+	else if (type_flag == 'c')
+		ret = c_flag(str, args);
+	return (ret);
 }
 
 int		ft_printf(const char *format, ...)

@@ -234,14 +234,3 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 		ret = tri_before_positive(str, before, after, args);
 	return (ret);
 }
-
-int		is_prn_d(char *str)
-{
-	while(*str != 'd' && *str)
-	{
-		if(*str == '.')
-			return(1);
-		str++;
-	}
-	return (0);
-}
