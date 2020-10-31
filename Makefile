@@ -8,8 +8,9 @@ SRCS    =	ft_printf.c\
 		prn_d.c \
 		arg_d.c \
 		d_flag.c \
+		c_flag.c \
 		utils.c \
-
+		common.c \
 
 OBJS    =   $(SRCS:.c=.o)
 HEAD    =   ft_printf.h
