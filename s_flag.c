@@ -14,14 +14,20 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	int n;
 	char *str;
 
+	before = (before < 0) ? -before : before;
 	str = va_arg(args, char *);
 	if (!str && (before > 5 || after > 5))
+	{
 		str = "(null)";
+		if (before > 5 && after <= 5)
+			after = 0;
+		else if (after > 5 && before <= 5)
+			before = 0;
+	}
 	else if (!str)
 		str = "";
 	len = ft_strlen(str);
 	n = (after < len) ? after : len;
-	before = (before < 0) ? -before : before;
 	nb_sp = before - n;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + n;
