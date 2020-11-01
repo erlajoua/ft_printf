@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int		get_after_d(char *str)
+int		get_after_c(char *str, char c)
 {
 	int ret;
 	int moins;
@@ -10,7 +10,7 @@ int		get_after_d(char *str)
 	while (*str != '.')
 		str++;
 	str++;
-	while (*str != 'd')
+	while (*str != c)
 	{
 		if (*str == '-')
 			moins = 1;
@@ -225,7 +225,7 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 	if (is_arga_d(str))
 		after = va_arg(args, int);
 	else
-		after = get_after_d(str);
+		after = get_after_c(str, 'd');
 	if (is_moins_before_c(str, '.') == 1 && before > 0) 
 		before *= -1;
 	if (before < 0)
