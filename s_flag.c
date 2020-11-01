@@ -28,7 +28,7 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	ft_putstrn(str, n);
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
-	return ((!str) ? ret_null() : ret);
+	return (ret);
 }
 
 int	s_bneg_aneg(int before, va_list args) //pas fait
@@ -40,7 +40,7 @@ int	s_bneg_aneg(int before, va_list args) //pas fait
 
 	str = va_arg(args, char *);
 	if (!str)
-		return (0);
+		str = "(null)";
 	len = ft_strlen(str);
 	before = (before < 0) ? -before : before;
 	nb_sp = before - len;
