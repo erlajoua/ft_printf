@@ -68,5 +68,7 @@ int	is_zero_before_d(char *str);
 int	special_zero(int before);
 int	c_flag(char *str, va_list args);
 int	is_moins_c(char *str, char c);
+int	get_nbatoi_c(char *str, char c);
+int	p_flag(char *str, va_list args);
 
 #endif

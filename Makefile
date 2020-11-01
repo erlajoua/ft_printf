@@ -11,6 +11,7 @@ SRCS    =	ft_printf.c\
 		c_flag.c \
 		utils.c \
 		common.c \
+		p_flag.c \
 
 OBJS    =   $(SRCS:.c=.o)
 HEAD    =   ft_printf.h
