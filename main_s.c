@@ -2,13 +2,10 @@
 
 int main(void)
 {
-//%.09s
-	char *str = NULL;
-	printf(" <- [%d]\n", ft_printf("|%-15.16s|", "abc"));
-	printf(" <- [%d]\n\n", printf("|%-15.16s|", "abc"));
-
-	printf(" <- [%d]\n", ft_printf("|%.09s|", str));
-	printf(" <- [%d]\n\n", printf("|%.09s|", str));
+	int nb;
+	nb = 4;
+	printf(" <- [%d]\n", ft_printf("|%*.p|", 20, &nb));
+	printf(" <- [%d]\n\n", printf("|%*.p|", 20, &nb));
 
 	return (0);
 }

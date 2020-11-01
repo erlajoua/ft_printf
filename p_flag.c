@@ -61,20 +61,46 @@ int	addr_null(void)
 	return (5);
 }
 
+int	ft_print_nil(int before)
+{
+	int ret;
+	
+
+	if (before < 0)
+	{
+		before = -before;
+		ret = (before > 5) ? before : 5;
+		before -= 5;
+		ft_putstr("(nil)");
+		while (before-- > 0)
+			ft_putchar(' ');
+	}
+	else
+	{
+		ret = (before > 5) ? before : 5;
+		before -= 5;
+		while (before-- > 0)
+			ft_putchar(' ');
+		ft_putstr("(nil)");
+	}
+	return (ret);
+}
+
 int	tri_arg_p(char *str, va_list args)
 {
 	int before;
 	int ret;
 	unsigned long long nb;
 
+	ret = 0;
 	before = va_arg(args, int);
 	nb = (unsigned long long)va_arg(args, void *);
-	if (!nb)
-		return (addr_null());
-	ret = 0;
 	if (is_moins_before_c(str, '*') && before > 0)
 		before = -before;
-	ret = ft_print_memory(before, nb);
+	if (!nb)
+		ret = ft_print_nil(before);
+	else
+		ret = ft_print_memory(before, nb);
 	return (ret);
 }
 
@@ -85,11 +111,12 @@ int	tri_moins_p(char *str, va_list args)
 	unsigned long long nb;
 
 	nb = (unsigned long long)va_arg(args, void *);
-	if (!nb)
-		return (addr_null());
 	ret = 0;
 	before = get_nbatoi_c(str, 'p');
-	ret = ft_print_memory(before, nb);
+	if (!nb)
+		ret = ft_print_nil(before);
+	else
+		ret = ft_print_memory(before, nb);
 	return (ret);
 }
 
