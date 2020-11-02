@@ -29,7 +29,7 @@ int	s_bneg_apos(int before, int after, va_list args) //
 	int len;
 	int nb_sp;
 	int ret;
-	
+
 	ret = 0;
 	nb_sp = 0;
 	n = 0;
@@ -51,25 +51,25 @@ int	s_bneg_apos(int before, int after, va_list args) //
 	return (ret);
 }
 
-int	s_bneg_aneg(int before, va_list args) //
+int	s_bneg_aneg1(int before, int after, va_list args) //before >= after
 {
+	//ici on pourra supprimer n pour la norme
 	int n;
 	int ret;
 	int len;
 	int nb_sp;
 	char *str;
-
+	
 	str = va_arg(args, char *);
 	nb_sp = 0;
 	len = 0;
 	ret = 0;
 	n = 0;
-	before = -before;
 	if (!str && before > 5)
 		str = "(null)";
 	if (str)
-		len = ft_strlen(str);
-	n = (before > len) ? len : before;
+		len = ft_strlen(str); //2
+	n = len; 
 	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	if (str)
@@ -77,6 +77,49 @@ int	s_bneg_aneg(int before, va_list args) //
 	ret = n + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
+	return (ret);
+}
+
+int	s_bneg_aneg2(int before, int after, va_list args)
+{
+	int n;
+	int ret;
+	int len;
+	int nb_sp;
+	char *str;
+
+	//before detemrine la taille du truc et after ftg
+	str = va_arg(args, char *);
+	nb_sp = 0;
+	len = 0;
+	ret = 0;
+	n = 0;
+	if (!str && before > 5)
+		str = "(null)";
+	if (str)
+		len = ft_strlen(str); //2
+	n = len; //nb de carac a afficher
+	nb_sp = (before - n);
+	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
+	ret = nb_sp + n;
+	if (str)
+		ft_putstrn(str, n);
+	while (nb_sp-- > 0)
+		ft_putchar(' ');
+	return (ret);
+}
+
+int	s_bneg_aneg(int before, int after, va_list args) //
+{
+	int ret;
+
+	ret = 0;
+	before = -before;
+	after = -after;
+	if (before >= after)
+		ret = s_bneg_aneg1(before, after, args);
+	else	
+		ret = s_bneg_aneg2(before, after, args);
 	return (ret);
 }
 //
@@ -87,7 +130,7 @@ int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
 	int len;
 	int nb_sp;
 	int ret;
-	
+
 	ret = 0;
 	nb_sp = 0;
 	n = 0;
@@ -146,7 +189,7 @@ int	tri_arg_s(char *str, va_list args)
 	if (is_moins_before_c(str, '*') && before > 0)
 		before = -before;
 	if (before < 0)
-		ret = s_bneg_aneg(before, args);
+		ret = s_bneg_aneg(before, 0, args);
 	else
 		ret = s_bpos_aneg(before, args);
 	return (ret);
@@ -160,7 +203,7 @@ int	tri_moins_s(char *str, va_list args)
 	ret = 0;
 	before = get_nbatoi_c(str, 's');
 	if (before < 0)
-		ret = s_bneg_aneg(before, args);
+		ret = s_bneg_aneg(before, 0, args);
 	else
 		ret = s_bpos_aneg(before, args);
 	return (ret);
@@ -172,9 +215,13 @@ int	tri_before_neg(int before, int after, va_list args)
 
 	ret = 0;
 	if (after < 0)
-		ret = s_bneg_aneg(before, args);
+	{
+		ret = s_bneg_aneg(before, after, args);
+	}
 	else
+	{
 		ret = s_bneg_apos(before, after, args);
+	}
 	return (ret);
 }
 
