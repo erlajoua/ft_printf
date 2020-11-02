@@ -144,6 +144,8 @@ int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
 	n = 0;
 	len = 0;
 	str = va_arg(args, char *);
+	if (!str)
+		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
 	n = (after > len) ? len : after;
