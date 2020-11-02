@@ -158,9 +158,9 @@ int	tri_moins_s(char *str, va_list args)
 	ret = 0;
 	before = get_nbatoi_c(str, 's');
 	if (before < 0)
-		ret = s_bneg_apos(before, 0, args);
+		ret = s_bneg_aneg(before, args);
 	else
-		ret = s_bpos_apos(before, 0, args);
+		ret = s_bpos_aneg(before, args);
 	return (ret);
 }
 
