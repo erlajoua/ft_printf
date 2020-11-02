@@ -2,8 +2,9 @@
 
 int main(void)
 {
-	printf(" <- [%d]\n", ft_printf("|%p|", 0));
-	printf(" <- [%d]\n\n", printf("|%p|", 0));
+	char *str = NULL;
+	printf(" <- [%d]\n", ft_printf("|%-16.16s|",  str));
+	printf(" <- [%d]\n\n", printf("|%-16.16s|", str));
 
 	return (0);
 }
