@@ -22,7 +22,7 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 		str = "(null)";
 	}
 	else if (!str)
-		str = "";
+		str = " ";
 	if (str)
 		len = ft_strlen(str);
 	n = (after < len) ? after : len;
