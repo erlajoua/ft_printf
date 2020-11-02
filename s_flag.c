@@ -172,7 +172,7 @@ int	s_bpos_aneg(int before, va_list args) //
 	len = 0;
 	ret = 0;
 	n = 0;
-	if (!str && before > 5)
+	if (!str)
 		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
