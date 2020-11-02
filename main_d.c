@@ -2,10 +2,14 @@
 
 int main(void)
 {
-	printf(" <- [%d]\n", ft_printf("|%0*.*d|", 2, -4, 0));
-	printf(" <- [%d]\n\n", printf("|%0*.*d|", 2, -4, 0));
+	int nb1 = 4;
+	printf(" <- [%d]\n", ft_printf("|%-16p|", &nb1));
+	printf(" <- [%d]\n\n", printf("|%-16p|", &nb1));
 
-	printf(" <- [%d]\n", ft_printf("|%04.*d|", -2, 0));
-	printf(" <- [%d]\n\n", printf("|%04.*d|", -2, 0));
+	printf(" <- [%d]\n", ft_printf("|%*.p|", -16, NULL));
+	printf(" <- [%d]\n\n", printf("|%*.p|", -16, NULL));
+	
+	printf(" <- [%d]\n", ft_printf("|%-16.p|", NULL));
+	printf(" <- [%d]\n\n", printf("|%-16.p|", NULL));
 	return (0);
 }

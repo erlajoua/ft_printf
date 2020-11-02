@@ -31,7 +31,7 @@ int    ft_print_memory(int before, unsigned long long str)
     int len;
 
     ret = 0;
-    ret = (before < 0) ? -before : before;
+	ret = (before < 0) ? -before : before;
     if (before < 0)
     {
     	ret = print_addr((unsigned long long)str, 0) + 2;
@@ -45,51 +45,62 @@ int    ft_print_memory(int before, unsigned long long str)
     else
     {
     	len = getlen_addr((unsigned long long)str, 0) + 2;
-	nb_sp = before - len;
-	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ret = (before < len) ? len : ret; 
+		nb_sp = before - len;
+		nb_sp = (nb_sp < 0) ? 0 : nb_sp;
+		ret = (before < len) ? len : ret; 
     	while (nb_sp-- > 0)
-		ft_putchar(' ');
-	print_addr((unsigned long long)str, 0);
+			ft_putchar(' ');
+		print_addr((unsigned long long)str, 0);
     }
     return (ret);
 }
 
-int	addr_null(void)
+/*int	print_nil(void)
 {
-	write(1, "(nil)", 5);
-	return (5);
-}
+	write(1, "0x", 2);
+	return (2);
+}*/
 
 int	ft_print_nil(int before)
 {
 	int ret;
 	
-
+	//puts("ft_print_nil");
 	if (before < 0)
 	{
 		before = -before;
-		ret = (before > 5) ? before : 5;
-		before -= 5;
-		ft_putstr("(nil)");
+		ret = (before > 3) ? before : 3;
+		before -= 3;
+		ft_putstr("0x0");
 		while (before-- > 0)
 			ft_putchar(' ');
 	}
 	else
 	{
-		ret = (before > 5) ? before : 5;
-		before -= 5;
+		ret = (before > 3) ? before : 3;
+		before -= 3;
 		while (before-- > 0)
 			ft_putchar(' ');
-		ft_putstr("(nil)");
+		ft_putstr("0x0");
 	}
 	return (ret);
 }
 
-int	tri_arg_p(char *str, va_list args)
+int	is_prn_p(char *str)
+{
+	while (*str != 'p')
+	{
+		if (*str == '.')
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
+int tri_arg_p(char *str, va_list args)
 {
 	int before;
-	int ret;
+	int  ret;
 	unsigned long long nb;
 
 	ret = 0;
@@ -97,7 +108,7 @@ int	tri_arg_p(char *str, va_list args)
 	nb = (unsigned long long)va_arg(args, void *);
 	if (is_moins_before_c(str, '*') && before > 0)
 		before = -before;
-	if (!nb)
+	if (!is_prn_p(str) && !nb)
 		ret = ft_print_nil(before);
 	else
 		ret = ft_print_memory(before, nb);
@@ -113,7 +124,7 @@ int	tri_moins_p(char *str, va_list args)
 	nb = (unsigned long long)va_arg(args, void *);
 	ret = 0;
 	before = get_nbatoi_c(str, 'p');
-	if (!nb)
+	if (!is_prn_p(str) && !nb)
 		ret = ft_print_nil(before);
 	else
 		ret = ft_print_memory(before, nb);
