@@ -50,7 +50,7 @@ int	s_bneg_apos(int before, int after, va_list args) //
 		ft_putchar(' ');
 	return (ret);
 }
-
+/*
 int	s_bneg_aneg1(int before, int after, va_list args) //before >= after
 {
 	//ici on pourra supprimer n pour la norme
@@ -80,8 +80,8 @@ int	s_bneg_aneg1(int before, int after, va_list args) //before >= after
 		ft_putchar(' ');
 	return (ret);
 }
-
-int	s_bneg_aneg2(int before, int after, va_list args)
+*/
+int	s_bneg_aneg(int before, int after, va_list args)
 {
 	int n;
 	int ret;
@@ -110,7 +110,7 @@ int	s_bneg_aneg2(int before, int after, va_list args)
 		ft_putchar(' ');
 	return (ret);
 }
-
+/*
 int	s_bneg_aneg(int before, int after, va_list args) //
 {
 	int ret;
@@ -124,7 +124,7 @@ int	s_bneg_aneg(int before, int after, va_list args) //
 		ret = s_bneg_aneg2(before, after, args);
 	return (ret);
 }
-//
+*/
 int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
 {
 	char *str;
