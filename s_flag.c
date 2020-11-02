@@ -96,13 +96,16 @@ int	s_bneg_aneg(int before, int after, va_list args)
 	len = 0;
 	ret = 0;
 	n = 0;
+	before = -before;
 	if (!str && before > 5)
 		str = "(null)";
+	//printf("str : %s\n", str);
 	if (str)
-		len = ft_strlen(str); //2
-	n = len; //nb de carac a afficher
-	nb_sp = (before - n);
+		len = ft_strlen(str); //6
+	n = len; //n = 6
+	nb_sp = (before - n); //16 - 6 = 10
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
+	//printf("nb_sp : %d\n", nb_sp);
 	ret = nb_sp + n;
 	if (str)
 		ft_putstrn(str, n);
