@@ -86,7 +86,7 @@ int	s_bpos_apos(int before, int after, va_list args) //pas fait
 	else if (!str)
 		str = "(null)";
 	//printf("str : %s\n", str);
-	if (!str)
+	if (str)
 		len = ft_strlen(str); //6
 	n = (after < len) ? after : len; //1 < 6 so n = 1 
 	nb_sp = before - n;
@@ -94,7 +94,7 @@ int	s_bpos_apos(int before, int after, va_list args) //pas fait
 	ret = nb_sp + n;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
-	if (!str)
+	if (str)
 		ft_putstrn(str, n);
 	return (ret);
 }
@@ -112,14 +112,14 @@ int	s_bpos_aneg(int before, va_list args) //pas fait
 		return (ret_null());
 	else if (!str)
 		str = "(null)";
-	if (!str)
+	if (str)
 		len = ft_strlen(str);
 	nb_sp = before - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + len;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
-	if (!str)
+	if (str)
 		ft_putstr(str);
 	return (ret);
 
