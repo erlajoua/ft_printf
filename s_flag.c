@@ -1,4 +1,20 @@
 #include "ft_printf.h"
+#include <string.h> 
+
+int		is_arga_s(char *str)
+{
+	while(*str != '.')
+		str++;
+	str++;
+	while(*str != 's')
+	{
+		if(*str == '*')
+			return (1);
+		str++;
+	}
+	return (0);
+}
+
 
 int	ret_null(void)
 {
@@ -6,93 +22,83 @@ int	ret_null(void)
 	return (6);
 }
 
-int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
+int	s_bneg_apos(int before, int after, va_list args) //
 {
-	int ret;
-	int nb_sp;
-	int len;
-	int n;
-	char *str;
-
-	len = 0;
-	//-2 et 3
-	before = (before < 0) ? -before : before;
-	str = va_arg(args, char *);
-	if (!str && (before > 5 || after > 5))
-	{
-		str = "(null)";
-	}
-	else if (!str)
-		str = "(null)";
-	if (str)
-		len = ft_strlen(str);
-	n = (after < len) ? after : len;
-	nb_sp = before - n;
-	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ret = nb_sp + n;
-	if (str)
-		ft_putstrn(str, n);
-	else
-		ft_putstr("(null)");
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
-	return (ret);
-}
-
-int	s_bneg_aneg(int before, va_list args) //pas fait
-{
-	int ret;
-	int nb_sp;
-	int len;
 	char *str;
 	int n;
-
+	int len;
+	int nb_sp;
+	int ret;
+	
+	ret = 0;
+	nb_sp = 0;
 	n = 0;
-	len = 0;
+	before = -before;
 	str = va_arg(args, char *);
-	if (!str)
-		str = "(null)";
-	len = ft_strlen(str);
-	before = (before < 0) ? -before : before;
-	nb_sp = before - len;
+	if (str)
+		len = ft_strlen(str);
+	n = (after > len) ? len : after;
+	if (after == 0 || n < 0)
+		n = 0;
+	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ret = nb_sp + len;
-	ft_putstr(str);
+	if (str)
+		ft_putstrn(str, n);
+	ret = n + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
-
 }
 
-//
-
-int	s_bpos_apos(int before, int after, va_list args) //pas fait
+int	s_bneg_aneg(int before, va_list args) //
 {
-	int ret;
-	int nb_sp;
-	int len;
 	int n;
+	int ret;
+	int len;
+	int nb_sp;
 	char *str;
 
-	len = 0;
 	str = va_arg(args, char *);
-	if (!str && (before > 5 || after > 5))
-	{
+	nb_sp = 0;
+	len = 0;
+	ret = 0;
+	n = 0;
+	before = -before;
+	if (!str && before > 5)
 		str = "(null)";
-		/*if (before > 5 && after <= 5)
-			after = 0;
-		else if (after > 5 && before <= 5)
-			before = 0;*/
-	}
-	else if (!str)
-		str = "(null)";
-	//printf("str : %s\n", str);
 	if (str)
-		len = ft_strlen(str); //6
-	n = (after < len) ? after : len; //1 < 6 so n = 1 
-	nb_sp = before - n;
+		len = ft_strlen(str);
+	n = (before > len) ? len : before;
+	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ret = nb_sp + n;
+	if (str)
+		ft_putstrn(str, n);
+	ret = n + nb_sp;
+	while (nb_sp-- > 0)
+		ft_putchar(' ');
+	return (ret);
+}
+//
+int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
+{
+	char *str;
+	int n;
+	int len;
+	int nb_sp;
+	int ret;
+	
+	ret = 0;
+	nb_sp = 0;
+	n = 0;
+	str = va_arg(args, char *);
+	if (str)
+		len = ft_strlen(str);
+	n = (after > len) ? len : after;
+	if (after == 0 || n < 0)
+		n = 0;
+	nb_sp = (before - n);
+	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
+	ret = n + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	if (str)
@@ -100,30 +106,32 @@ int	s_bpos_apos(int before, int after, va_list args) //pas fait
 	return (ret);
 }
 
-int	s_bpos_aneg(int before, va_list args) //pas fait
-{
+int	s_bpos_aneg(int before, va_list args) //
+{	
+	int n;
 	int ret;
-	int nb_sp;
 	int len;
+	int nb_sp;
 	char *str;
 
-	len = 0;
 	str = va_arg(args, char *);
-	if (!str && before == 0)
-		return (ret_null());
-	else if (!str)
+	nb_sp = 0;
+	len = 0;
+	ret = 0;
+	n = 0;
+	if (!str && before > 5)
 		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
-	nb_sp = before - len;
+	n = (before > len) ? len : before;
+	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ret = nb_sp + len;
+	ret = n + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	if (str)
-		ft_putstr(str);
+		ft_putstrn(str, n);
 	return (ret);
-
 }
 
 int	tri_arg_s(char *str, va_list args)
@@ -131,6 +139,7 @@ int	tri_arg_s(char *str, va_list args)
 	int before;
 	int ret;
 
+	ret = 0;
 	before = va_arg(args, int);
 	if (is_moins_before_c(str, '*') && before > 0)
 		before = -before;
@@ -149,9 +158,9 @@ int	tri_moins_s(char *str, va_list args)
 	ret = 0;
 	before = get_nbatoi_c(str, 's');
 	if (before < 0)
-		ret = s_bneg_aneg(before, args);
+		ret = s_bneg_apos(before, 0, args);
 	else
-		ret = s_bpos_aneg(before, args);
+		ret = s_bpos_apos(before, 0, args);
 	return (ret);
 }
 
@@ -190,12 +199,13 @@ int	tri_prn_s(char *str, va_list args)
 		before = va_arg(args, int);
 	else
 		before = get_before_d(str);
-	if (is_arga_d(str))
+	if (is_arga_s(str))
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, 's');
 	if (is_moins_before_c(str, '.') == 1 && before > 0)
 		before = -before;
+	//printf("before : %d, after : %d\n", before, after);
 	if (before < 0)
 		ret = tri_before_neg(before, after, args);
 	else
