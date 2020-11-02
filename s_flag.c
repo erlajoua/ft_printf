@@ -25,14 +25,14 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 		else if (after > 5 && before <= 5)
 			before = 0;*/
 	}
-	else if (!str)
-		str = "(null)";
-	len = ft_strlen(str);
+	if (!str)
+		len = ft_strlen(str);
 	n = (after < len) ? after : len;
 	nb_sp = before - n;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + n;
-	ft_putstrn(str, n);
+	if (!str)
+		ft_putstrn(str, n);
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
@@ -45,15 +45,18 @@ int	s_bneg_aneg(int before, va_list args) //pas fait
 	int len;
 	char *str;
 
+	len = 0;
 	str = va_arg(args, char *);
 	if (!str)
 		str = "(null)";
-	len = ft_strlen(str);
+	if (!str)
+		len = ft_strlen(str);
 	before = (before < 0) ? -before : before;
 	nb_sp = before - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + len;
-	ft_putstr(str);
+	if (!str)
+		ft_putstr(str);
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
@@ -82,14 +85,16 @@ int	s_bpos_apos(int before, int after, va_list args) //pas fait
 	else if (!str)
 		str = "(null)";
 	//printf("str : %s\n", str);
-	len = ft_strlen(str); //6
+	if (!str)
+		len = ft_strlen(str); //6
 	n = (after < len) ? after : len; //1 < 6 so n = 1 
 	nb_sp = before - n;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + n;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
-	ft_putstrn(str, n);
+	if (!str)
+		ft_putstrn(str, n);
 	return (ret);
 }
 
@@ -105,13 +110,15 @@ int	s_bpos_aneg(int before, va_list args) //pas fait
 		return (ret_null());
 	else if (!str)
 		str = "(null)";
-	len = ft_strlen(str);
+	if (!str)
+		len = ft_strlen(str);
 	nb_sp = before - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + len;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
-	ft_putstr(str);
+	if (!str)
+		ft_putstr(str);
 	return (ret);
 
 }
