@@ -97,12 +97,13 @@ int	s_bneg_aneg(int before, int after, va_list args)
 	ret = 0;
 	n = 0;
 	before = -before;
-	if (!str && before > 5)
+	if (!str)
 		str = "(null)";
 	//printf("str : %s\n", str);
 	if (str)
 		len = ft_strlen(str); //6
 	n = len; //n = 6
+	//printf("n : %d\n", n);
 	nb_sp = (before - n); //16 - 6 = 10
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	//printf("nb_sp : %d\n", nb_sp);
