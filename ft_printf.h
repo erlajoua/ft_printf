@@ -74,7 +74,7 @@ int		ft_strlen(char *str);
 void		ft_putstr(char *str);
 void		ft_putstrn(char *str, int n);
 int		s_flag(char *str, va_list args);
-int		s_bneg_aneg(int before, va_list args);
+int		s_bneg_aneg(int before, int after, va_list args);
 int		s_bneg_apos(int before, int after, va_list args);
 int		s_bpos_aneg(int before, va_list args);
 int		s_bpos_apos(int before, int after, va_list args);
