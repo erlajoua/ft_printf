@@ -168,7 +168,7 @@ int	s_bpos_aneg(int before, va_list args) //
 		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
-	n = (before > len) ? len : before;
+	n = len;
 	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = n + nb_sp;
