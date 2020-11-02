@@ -15,19 +15,21 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	char *str;
 
 	len = 0;
-	puts("salut");
-	//printf("after : %d\n", after);
 	before = (before < 0) ? -before : before;
 	str = va_arg(args, char *);
 	if (!str && (before > 5 || after > 5))
+	{
 		str = "(null)";
-	if (!str)
+	}
+	else if (!str)
+		str = "";
+	if (str)
 		len = ft_strlen(str);
 	n = (after < len) ? after : len;
 	nb_sp = before - n;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + n;
-	if (!str)
+	if (str)
 		ft_putstrn(str, n);
 	else
 		ft_putstr("(null)");
