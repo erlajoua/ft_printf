@@ -14,17 +14,13 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	int n;
 	char *str;
 
+	len = 0;
+	puts("salut");
 	//printf("after : %d\n", after);
 	before = (before < 0) ? -before : before;
 	str = va_arg(args, char *);
 	if (!str && (before > 5 || after > 5))
-	{
 		str = "(null)";
-		/*if (before > 5 && after <= 5)
-			after = 0;
-		else if (after > 5 && before <= 5)
-			before = 0;*/
-	}
 	if (!str)
 		len = ft_strlen(str);
 	n = (after < len) ? after : len;
@@ -33,6 +29,8 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	ret = nb_sp + n;
 	if (!str)
 		ft_putstrn(str, n);
+	else
+		ft_putstr("(null)");
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
@@ -44,19 +42,19 @@ int	s_bneg_aneg(int before, va_list args) //pas fait
 	int nb_sp;
 	int len;
 	char *str;
+	int n;
 
+	n = 0;
 	len = 0;
 	str = va_arg(args, char *);
 	if (!str)
 		str = "(null)";
-	if (!str)
-		len = ft_strlen(str);
+	len = ft_strlen(str);
 	before = (before < 0) ? -before : before;
 	nb_sp = before - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = nb_sp + len;
-	if (!str)
-		ft_putstr(str);
+	ft_putstr(str);
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
@@ -73,6 +71,7 @@ int	s_bpos_apos(int before, int after, va_list args) //pas fait
 	int n;
 	char *str;
 
+	len = 0;
 	str = va_arg(args, char *);
 	if (!str && (before > 5 || after > 5))
 	{
@@ -105,6 +104,7 @@ int	s_bpos_aneg(int before, va_list args) //pas fait
 	int len;
 	char *str;
 
+	len = 0;
 	str = va_arg(args, char *);
 	if (!str && before == 0)
 		return (ret_null());
