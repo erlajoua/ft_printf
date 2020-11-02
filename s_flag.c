@@ -59,7 +59,8 @@ int	s_bneg_aneg1(int before, int after, va_list args) //before >= after
 	int len;
 	int nb_sp;
 	char *str;
-	
+	(void)after;
+
 	str = va_arg(args, char *);
 	nb_sp = 0;
 	len = 0;
@@ -87,6 +88,7 @@ int	s_bneg_aneg2(int before, int after, va_list args)
 	int len;
 	int nb_sp;
 	char *str;
+	(void)after;
 
 	//before detemrine la taille du truc et after ftg
 	str = va_arg(args, char *);
