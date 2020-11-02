@@ -36,6 +36,8 @@ int	s_bneg_apos(int before, int after, va_list args) //
 	len = 0;
 	before = -before;
 	str = va_arg(args, char *);
+	if (!str)
+		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
 	n = (after > len) ? len : after;
