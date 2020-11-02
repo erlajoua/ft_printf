@@ -2,10 +2,10 @@
 
 int main(void)
 {
-	int nb;
-	nb = 4;
-	printf(" <- [%d]\n", ft_printf("|%*.p|", 20, &nb));
-	printf(" <- [%d]\n\n", printf("|%*.p|", 20, &nb));
+	char *str = "abc";
+
+	printf(" <- [%d]\n", ft_printf("|%-16.s|", NULL));
+	printf(" <- [%d]\n\n", printf("|%-16.s|", NULL));
 
 	return (0);
 }
