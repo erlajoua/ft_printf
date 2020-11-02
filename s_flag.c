@@ -33,6 +33,7 @@ int	s_bneg_apos(int before, int after, va_list args) //
 	ret = 0;
 	nb_sp = 0;
 	n = 0;
+	len = 0;
 	before = -before;
 	str = va_arg(args, char *);
 	if (str)
@@ -90,6 +91,7 @@ int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
 	ret = 0;
 	nb_sp = 0;
 	n = 0;
+	len = 0;
 	str = va_arg(args, char *);
 	if (str)
 		len = ft_strlen(str);
