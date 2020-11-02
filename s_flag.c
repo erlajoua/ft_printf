@@ -15,6 +15,7 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 	char *str;
 
 	len = 0;
+	//-2 et 3
 	before = (before < 0) ? -before : before;
 	str = va_arg(args, char *);
 	if (!str && (before > 5 || after > 5))
@@ -22,7 +23,7 @@ int	s_bneg_apos(int before, int after, va_list args) //normalement c fait
 		str = "(null)";
 	}
 	else if (!str)
-		str = " ";
+		str = "(null)";
 	if (str)
 		len = ft_strlen(str);
 	n = (after < len) ? after : len;
