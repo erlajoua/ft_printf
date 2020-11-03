@@ -216,7 +216,9 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 	int before;
 	int after;
 	int ret;
-
+	char c;
+	
+	c = get_d_or_i(str);
 	ret = 0;
 	if (is_argb_d(str))
 		before = va_arg(args, int);
@@ -225,7 +227,7 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 	if (is_arga_c(str, 'd') || is_arga_c(str, 'i'))
 		after = va_arg(args, int);
 	else
-		after = get_after_c(str, 'd');
+		after = get_after_c(str, c);
 	if (is_moins_before_c(str, '.') == 1 && before > 0) 
 		before *= -1;
 	if (before < 0)
