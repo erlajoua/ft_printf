@@ -4,12 +4,16 @@ int		get_nbatoi_c(char *str, char c)
 {
 	int ret;
 	int moins;
+	char c_2;
 
+	c_2 = c;
+	if (c == 'd')
+		c_2 = 'i';
 	moins = 0;
 	ret = 0;
     	while ((*(str + 1)) == '-')
         	str++;
-	while (*str != c)
+	while (*str != c && *str != c_2)
 	{
 		if (*str == '-')
 			moins++;

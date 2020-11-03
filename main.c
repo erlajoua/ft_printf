@@ -2,17 +2,17 @@
 
 int main(void)
 {
-	unsigned int nb = -44564564;
+	int nb = -44564564;
 
-	printf("%d\n", ft_printf("|%-15.*u|", 7, nb));
-	printf("%d\n\n", printf("|%-15.*u|", 7, nb));
+	printf("%i\n", ft_printf("|%-15.*i|", 7, nb));
+	printf("%i\n\n", printf("|%-15.*i|", 7, nb));
 	
 
-	printf("%d\n", ft_printf("|%-7.*u|", -9, nb));
-	printf("%d\n\n", printf("|%-7.*u|", -9, nb));
+	printf("%i\n", ft_printf("|%-7.*i|", -9, nb));
+	printf("%i\n\n", printf("|%-7.*i|", -9, nb));
 
-	printf("%d\n", ft_printf("|%-7.*u|", -15, nb));
-	printf("%d\n\n", printf("|%-7.*u|", -15, nb));
+	printf("%i\n", ft_printf("|%-7.*i|", -15, nb));
+	printf("%i\n\n", printf("|%-7.*i|", -15, nb));
 	
 	
 	return (0);

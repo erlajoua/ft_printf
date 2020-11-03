@@ -199,7 +199,7 @@ int	tri_before_positive(char *str, int before, int after, va_list args)
 	ret = 0;
 	if (after < 0)
 	{
-		if (is_zero_before_c(str, 'd'))
+		if (is_zero_before_c(str, 'd') || is_zero_before_c(str, 'i'))
 			ret = bpos_aneg(before, args, '0', str);
 		else
 			ret = bpos_aneg(before, args, ' ', str);
@@ -222,7 +222,7 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 		before = va_arg(args, int);
 	else
 		before = get_before_d(str);
-	if (is_arga_c(str, 'd'))
+	if (is_arga_c(str, 'd') || is_arga_c(str, 'i'))
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, 'd');
