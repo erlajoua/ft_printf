@@ -222,7 +222,7 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 		before = va_arg(args, int);
 	else
 		before = get_before_d(str);
-	if (is_arga_d(str))
+	if (is_arga_c(str, 'd'))
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, 'd');

@@ -32,7 +32,7 @@ int 	prn_b1a1_3(int nb);
 int		prn_b1a1_4(int after, int nb);
 int		prn_b1a1_5(int before, int after, int nb);
 int		is_argb_d(char *str);
-int		is_arga_d(char *str);
+int		is_arga_c(char *str, char c);
 int		spaces_then_nb(va_list args, int before);
 int		is_moins_prn_d(char *str, int before);
 int		is_moins_d(char *str);
@@ -80,5 +80,6 @@ int		s_bpos_aneg(int before, va_list args);
 int		s_bpos_apos(int before, int after, va_list args);
 int		s_bneg(int before, va_list args);
 int		s_bpos(int before, va_list args);
+int		u_flag(char *str, va_list args);
 
 #endif

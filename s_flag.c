@@ -1,7 +1,7 @@
 #include "ft_printf.h"
 #include <string.h> 
 
-int		is_arga_s(char *str)
+/*int		is_arga_s(char *str)
 {
 	while(*str != '.')
 		str++;
@@ -13,7 +13,7 @@ int		is_arga_s(char *str)
 		str++;
 	}
 	return (0);
-}
+}*/
 
 
 int	ret_null(void)
@@ -258,7 +258,7 @@ int	tri_prn_s(char *str, va_list args)
 		before = va_arg(args, int);
 	else
 		before = get_before_d(str);
-	if (is_arga_s(str))
+	if (is_arga_c(str, 's'))
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, 's');

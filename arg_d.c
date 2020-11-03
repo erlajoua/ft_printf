@@ -11,12 +11,12 @@ int		is_argb_d(char *str)
 	return (0);
 }
 
-int		is_arga_d(char *str)
+int		is_arga_c(char *str, char c)
 {
 	while(*str != '.')
 		str++;
 	str++;
-	while(*str != 'd')
+	while(*str != c)
 	{
 		if(*str == '*')
 			return (1);
