@@ -199,7 +199,7 @@ int	tri_before_positive(char *str, int before, int after, va_list args)
 	ret = 0;
 	if (after < 0)
 	{
-		if (is_zero_before_d(str))
+		if (is_zero_before_c(str, 'd'))
 			ret = bpos_aneg(before, args, '0', str);
 		else
 			ret = bpos_aneg(before, args, ' ', str);

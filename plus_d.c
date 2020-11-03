@@ -7,7 +7,7 @@ int	bpos_zero(int before, char *str)
 	ret = before;
 	if (before == 0)
 		ret = 1;
-	if (!is_zero_before_d(str))
+	if (!is_zero_before_c(str, 'd'))
 		while (before-- > 1)
 			ft_putchar(' ');
 	else
@@ -55,9 +55,9 @@ int	is_in_string(char c)
 	return (0);
 }
 
-int	is_zero_before_d(char *str)
+int	is_zero_before_c(char *str, char c)
 {
-	while (*str != 'd' && !is_in_string(*str))
+	while (*str != c && !is_in_string(*str))
 	{
 		if (*str == '0')
 			return (1);
@@ -96,7 +96,7 @@ int     plus_d(char *str, va_list args)
 
     number = va_arg(args, int);
     nb = get_nbatoi_c(str, 'd'); //before - et
-    if (is_zero_before_d(str))
+    if (is_zero_before_c(str, 'd'))
     	ret = bpos_zero_before(nb, number);
     else
     {

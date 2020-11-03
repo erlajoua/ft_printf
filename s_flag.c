@@ -52,37 +52,7 @@ int	s_bneg_apos(int before, int after, va_list args) //
 		ft_putchar(' ');
 	return (ret);
 }
-/*
-int	s_bneg_aneg1(int before, int after, va_list args) //before >= after
-{
-	//ici on pourra supprimer n pour la norme
-	int n;
-	int ret;
-	int len;
-	int nb_sp;
-	char *str;
-	(void)after;
 
-	str = va_arg(args, char *);
-	nb_sp = 0;
-	len = 0;
-	ret = 0;
-	n = 0;
-	if (!str && before > 5)
-		str = "(null)";
-	if (str)
-		len = ft_strlen(str); //2
-	n = len; 
-	nb_sp = (before - n);
-	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	if (str)
-		ft_putstrn(str, n);
-	ret = n + nb_sp;
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
-	return (ret);
-}
-*/
 int	s_bneg_aneg(int before, int after, va_list args)
 {
 	int n;
@@ -116,21 +86,7 @@ int	s_bneg_aneg(int before, int after, va_list args)
 		ft_putchar(' ');
 	return (ret);
 }
-/*
-int	s_bneg_aneg(int before, int after, va_list args) //
-{
-	int ret;
 
-	ret = 0;
-	before = -before;
-	after = -after;
-	if (before >= after)
-		ret = s_bneg_aneg1(before, after, args);
-	else	
-		ret = s_bneg_aneg2(before, after, args);
-	return (ret);
-}
-*/
 int	s_bpos_apos(int before, int after, va_list args) //pas sur testé
 {
 	char *str;

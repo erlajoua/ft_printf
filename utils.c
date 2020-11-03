@@ -50,3 +50,16 @@ void	ft_putnbr(int nb)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + '0');
 }
+
+void	ft_putnbr_u(unsigned int nb)
+{
+	//a refaire pour u_int min
+	/*if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}*/
+	if (nb > 9)
+		ft_putnbr(nb / 10);
+	ft_putchar(nb % 10 + '0');
+}

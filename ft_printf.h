@@ -20,7 +20,9 @@ void	ft_putchar(char c);
 int 	plus_d(char *str, va_list args);
 int		d_flag(char *str, va_list args);
 int		int_lgth(int nb);
-void	ft_putnbr(int nb);
+int		uint_lgth(unsigned int nb);
+void		ft_putnbr(int nb);
+void		ft_putnbr_u(unsigned int nb);
 int		zr_then_spaces(va_list args, int before, int after);
 int		nb_then_spaces(va_list args, int before);
 int		prn_b1_a0(va_list args, int before);
@@ -81,5 +83,6 @@ int		s_bpos_apos(int before, int after, va_list args);
 int		s_bneg(int before, va_list args);
 int		s_bpos(int before, va_list args);
 int		u_flag(char *str, va_list args);
+int		is_zero_before_c(char *str, char c);
 
 #endif

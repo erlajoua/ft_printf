@@ -40,7 +40,7 @@ int		tri_arg_d(char *str, va_list args)
 	}
 	else
 	{
-		if (is_zero_before_d(str))
+		if (is_zero_before_c(str, 'd'))
 			ret = bpos_aneg(arg, args, '0', str);
 		else
 			ret = bpos_aneg(arg, args, ' ', str);
