@@ -195,11 +195,13 @@ int	bpos_apos(int before, int after, va_list args) //blue GDOC
 int	tri_before_positive(char *str, int before, int after, va_list args)
 {
 	int ret;
+	char c;
 	
+	c = get_d_or_i(str);
 	ret = 0;
 	if (after < 0)
 	{
-		if (is_zero_before_c(str, 'd') || is_zero_before_c(str, 'i'))
+		if (is_zero_before_c(str, c))
 			ret = bpos_aneg(before, args, '0', str);
 		else
 			ret = bpos_aneg(before, args, ' ', str);
@@ -219,12 +221,13 @@ int		tri_prn_d(char *str, va_list args) //PRN ARG MOINs
 	char c;
 	
 	c = get_d_or_i(str);
+	//printf("c : %c\n", c);
 	ret = 0;
 	if (is_argb_d(str))
 		before = va_arg(args, int);
 	else
 		before = get_before_d(str);
-	if (is_arga_c(str, 'd') || is_arga_c(str, 'i'))
+	if (is_arga_c(str, c))
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, c);
