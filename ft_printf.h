@@ -84,5 +84,6 @@ int		s_bneg(int before, va_list args);
 int		s_bpos(int before, va_list args);
 int		u_flag(char *str, va_list args);
 int		is_zero_before_c(char *str, char c);
+char		get_d_or_i(char *str);
 
 #endif

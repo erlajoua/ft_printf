@@ -2,10 +2,13 @@
 
 int main(void)
 {
-	int nb = 135;
+	int tab[] = {-135, -12, -1, 0, 1, 13, 198};
 
-	printf("%d\n", ft_printf("|%-4.4i|", nb));
-	printf("%d\n\n", printf("|%-4.4i|", nb));
+	for (int i = 0; i < 7; i++)
+	{
+		printf("%d\n", ft_printf("|%-4.i|", tab[i]));
+		printf("%d\n\n", printf("|%-4.i|", tab[i]));
+	}
 		
 	
 	return (0);

@@ -4,16 +4,12 @@ int		get_nbatoi_c(char *str, char c)
 {
 	int ret;
 	int moins;
-	char c_2;
 
-	c_2 = c;
-	if (c == 'd')
-		c_2 = 'i';
 	moins = 0;
 	ret = 0;
     	while ((*(str + 1)) == '-')
         	str++;
-	while (*str != c && *str != c_2)
+	while (*str != c)
 	{
 		if (*str == '-')
 			moins++;
@@ -26,13 +22,28 @@ int		get_nbatoi_c(char *str, char c)
 	return (ret);
 }
 
+char	get_d_or_i(char *str)
+{
+	while (*str)
+	{
+		if (*str == 'd')
+			return (*str);
+		else if (*str == 'i')
+			return (*str);
+		str++;
+	}
+	return ('%');
+}
+
 int tri_moins_d(char *str, va_list args)
 {
     int ret;
     int nb;
+    char c;
 
     ret = 0;
-    nb = get_nbatoi_c(str, 'd'); //before - et 
+    c = get_d_or_i(str);
+    nb = get_nbatoi_c(str, c); //before - et 
     ret = bneg_aneg(nb, args);
     return (ret);
 }
