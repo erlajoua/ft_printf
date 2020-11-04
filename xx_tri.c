@@ -27,7 +27,7 @@ int	tri_moins_X(char *str, va_list args)
 	int nb;
 
 	ret = 0;
-	nb = get_nbatoi_c(str, 'X'); //before - et 
+	nb = get_nbatoi_c(str, 'X');
 	ret = bneg_aneg_X(nb, args);
 	return (ret);
 
@@ -53,8 +53,7 @@ int	tri_arg_X(char *str, va_list args)
 		else
 			ret = bpos_aneg_X(arg, str, ' ', args);
 	}
-	return(ret);
-
+	return (ret);
 }
 
 int	tri_bneg_X(int before, int after, va_list args)

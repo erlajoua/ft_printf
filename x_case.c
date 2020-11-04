@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
 int	bpos_apos_x(int before, int after, va_list args)
 {
 	unsigned int nb;
@@ -15,7 +13,7 @@ int	bpos_apos_x(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero_x(before));
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	if (after >= len)
 		nb_zr = after - len;
 	nb_sp = before - (nb_zr + len);
@@ -38,8 +36,8 @@ int	bpos_aneg_x(int before, char *str, char c, va_list args)
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
-		return (bpos_zero_x(before, str)); //je dev
-	len = lgt_hex(nb); //3
+		return (bpos_zero_x(before, str));
+	len = lgt_hex(nb);
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
@@ -64,7 +62,7 @@ int	bneg_apos_x(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero(before));
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	if (before < 0)
 		before = -before;
 	if (after >= len)
@@ -88,7 +86,7 @@ int	bneg_aneg_x(int before, va_list args)
 	int ret;
 
 	nb = va_arg(args, unsigned int);
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	nb_sp = (before * -1 ) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
@@ -104,7 +102,7 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	int nb_zr;
 	int len;
 	
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	nb_zr = before - len;
 	if (nb_zr < 0)
 		nb_zr = 0;

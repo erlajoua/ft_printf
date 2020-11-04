@@ -1,5 +1,11 @@
 #include "ft_printf.h"
 
+void	print_sp(int nb)
+{
+	while (nb-- > 0)
+		ft_putchar(' ');
+}
+
 void 	ft_putnbr_u(unsigned int nb)
 {
 	if (nb > 9)

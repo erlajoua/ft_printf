@@ -18,7 +18,6 @@ int	plus_x(char *str, va_list args)
 			ret = bpos_else_x(nb, number);
 	}
 	return (ret);
-
 }
 
 int	tri_moins_x(char *str, va_list args)
@@ -27,10 +26,9 @@ int	tri_moins_x(char *str, va_list args)
 	int nb;
 
 	ret = 0;
-	nb = get_nbatoi_c(str, 'x'); //before - et 
+	nb = get_nbatoi_c(str, 'x');
 	ret = bneg_aneg_x(nb, args);
 	return (ret);
-
 }
 
 int	tri_arg_x(char *str, va_list args)
@@ -53,8 +51,7 @@ int	tri_arg_x(char *str, va_list args)
 		else
 			ret = bpos_aneg_x(arg, str, ' ', args);
 	}
-	return(ret);
-
+	return (ret);
 }
 
 int	tri_bneg_x(int before, int after, va_list args)

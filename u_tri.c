@@ -8,7 +8,7 @@ int	tri_moins_u(char *str, va_list args)
 	int nb;
 
 	ret = 0;
-	nb = get_nbatoi_c(str, 'u'); //before - et 
+	nb = get_nbatoi_c(str, 'u');
 	ret = bneg_aneg_u(nb, args);
 	return (ret);
 
@@ -37,8 +37,6 @@ int	tri_arg_u(char *str, va_list args)
 	return(ret);
 
 }
-
-//tri prn
 
 int	tri_bneg_u(int before, int after, va_list args)
 {

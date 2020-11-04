@@ -13,7 +13,7 @@ int	bpos_apos_X(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero_X(before));
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	if (after >= len)
 		nb_zr = after - len;
 	nb_sp = before - (nb_zr + len);
@@ -62,7 +62,7 @@ int	bneg_apos_X(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero(before));
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	if (before < 0)
 		before = -before;
 	if (after >= len)
@@ -112,4 +112,3 @@ int	bpos_zero_before_X(int before, unsigned int nb)
 	nb != 0 ? ft_putnbr_xx(nb): ft_putchar('0');
 	return (ret);
 }
-

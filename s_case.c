@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	s_bneg_apos(int before, int after, va_list args) //
+int	s_bneg_apos(int before, int after, va_list args)
 {
 	char *str;
 	int n;
@@ -91,7 +91,7 @@ int	s_bpos_apos(int before, int after, va_list args)
 	return (ret);
 }
 
-int	s_bpos_aneg(int before, va_list args) //
+int	s_bpos_aneg(int before, va_list args)
 {	
 	int n;
 	int ret;

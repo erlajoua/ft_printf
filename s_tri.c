@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-//4 fonctions
-
 int	tri_moins_s(char *str, va_list args)
 {
 	int before;

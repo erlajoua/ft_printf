@@ -26,7 +26,7 @@ int	bpos_else_X(int before, unsigned int nb)
 
 	nb_sp = 0;
 	nb_zr = 0;
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	nb_sp = before - (nb_zr + len);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = len + nb_sp + nb_zr;

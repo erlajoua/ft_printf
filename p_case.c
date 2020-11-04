@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	getlen_addr(unsigned long long addr, int i)
+int		getlen_addr(unsigned long long addr, int i)
 {
 	if (!addr)
 		return (i);
@@ -8,7 +8,7 @@ int	getlen_addr(unsigned long long addr, int i)
 	return (i);
 }
 
-int	print_addr(unsigned long long addr, int i)
+int		print_addr(unsigned long long addr, int i)
 {
 	char *basehexa;
 
@@ -24,13 +24,12 @@ int	print_addr(unsigned long long addr, int i)
 	return (i);
 }
 
-int	ft_print_memory(int before, unsigned long long str)
+int		ft_print_memory(int before, unsigned long long str)
 {
 	int ret;
 	int nb_sp;
 	int len;
 
-	ret = 0;
 	ret = (before < 0) ? -before : before;
 	if (before < 0)
 	{
@@ -39,23 +38,21 @@ int	ft_print_memory(int before, unsigned long long str)
 		nb_sp = before - ret;
 		nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 		ret += nb_sp;
-		while (nb_sp-- > 0)
-			ft_putchar(' ');
+		print_sp(nb_sp);
 	}
 	else
 	{
 		len = getlen_addr((unsigned long long)str, 0) + 2;
 		nb_sp = before - len;
 		nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-		ret = (before < len) ? len : ret; 
-		while (nb_sp-- > 0)
-			ft_putchar(' ');
+		ret = (before < len) ? len : ret;
+		print_sp(nb_sp);
 		print_addr((unsigned long long)str, 0);
 	}
 	return (ret);
 }
 
-int	ft_print_nil(int before)
+int		ft_print_nil(int before)
 {
 	int ret;
 

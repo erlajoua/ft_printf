@@ -54,8 +54,6 @@ int		bneg_apos(int before, int after, va_list args)
 	return (ret);
 }
 
-
-
 int		bpos_aneg(int before, va_list args, char c, char *str)
 {
 	int nb;

@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-//2
-
 int	tri_arg_s(char *str, va_list args)
 {
 	int before;

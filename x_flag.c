@@ -1,5 +1,4 @@
 #include "ft_printf.h"
-//plus_u
 
 int	bpos_zero_x(int before, char *str)
 {
@@ -18,7 +17,7 @@ int	bpos_zero_x(int before, char *str)
 	return (ret);
 }
 
-int	bpos_else_x(int before, unsigned int nb) //blue GDOC
+int	bpos_else_x(int before, unsigned int nb)
 {
 	int len;
 	int nb_sp;
@@ -27,7 +26,7 @@ int	bpos_else_x(int before, unsigned int nb) //blue GDOC
 
 	nb_sp = 0;
 	nb_zr = 0;
-	len = lgt_hex(nb); //3
+	len = lgt_hex(nb);
 	nb_sp = before - (nb_zr + len);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = len + nb_sp + nb_zr;
@@ -50,14 +49,6 @@ int	special_zero_x(int before)
 		ft_putchar(' ');
 	return (ret);
 }
-
-//alls b_p
-
-
-
-//tri
-
-
 
 int	x_flag(char *str, va_list args)
 {

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_strlen(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
@@ -10,7 +10,7 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-int	lgt_hex(unsigned int nb)
+int		lgt_hex(unsigned int nb)
 {
 	int i;
 
