@@ -1,13 +1,13 @@
 #include "ft_printf.h"
 
-int	bpos_zero_x(int before, char *str)
+int	bpos_zero_X(int before, char *str)
 {
 	int ret;
 
 	ret = before;
 	if (before == 0)
 		ret = 1;
-	if (!is_zero_before_c(str, 'x'))
+	if (!is_zero_before_c(str, 'X'))
 		while (before-- > 1)
 			ft_putchar(' ');
 	else
@@ -17,7 +17,7 @@ int	bpos_zero_x(int before, char *str)
 	return (ret);
 }
 
-int	bpos_else_x(int before, unsigned int nb)
+int	bpos_else_X(int before, unsigned int nb)
 {
 	int len;
 	int nb_sp;
@@ -34,11 +34,11 @@ int	bpos_else_x(int before, unsigned int nb)
 		ft_putchar(' ');
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_x(nb);
+	ft_putnbr_X(nb);
 	return (ret);
 }
 
-int	special_zero_x(int before)
+int	special_zero_X(int before)
 {
 	int ret;
 
@@ -50,18 +50,18 @@ int	special_zero_x(int before)
 	return (ret);
 }
 
-int	x_flag(char *str, va_list args)
+int	X_flag(char *str, va_list args)
 {
 	int ret;
 
 	ret = 0;
-	if (is_prn_c(str, 'x'))
-		ret = tri_prn_x(str, args);
-	else if (is_arg_c(str, 'x'))
-		ret = tri_arg_x(str, args);
-	else if (is_moins_c(str, 'x'))
-		ret = tri_moins_x(str, args);
+	if (is_prn_c(str, 'X'))
+		ret = tri_prn_X(str, args);
+	else if (is_arg_c(str, 'X'))
+		ret = tri_arg_X(str, args);
+	else if (is_moins_c(str, 'X'))
+		ret = tri_moins_X(str, args);
 	else
-		ret = plus_x(str, args);
+		ret = plus_X(str, args);
 	return (ret);
 }

@@ -1,8 +1,6 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
-int		get_after_c(char *str, char c)
+int	get_after_c(char *str, char c)
 {
 	int ret;
 	int moins;
@@ -25,7 +23,7 @@ int		get_after_c(char *str, char c)
 	return (ret);
 }
 
-int		get_before_d(char *str)
+int	get_before_d(char *str)
 {
 	int ret;
 	int moins;
@@ -46,7 +44,6 @@ int		get_before_d(char *str)
 	return (ret);
 }
 
-
 int	tri_before_negative(int before, int after, va_list args)
 {
 	int ret;
@@ -58,7 +55,6 @@ int	tri_before_negative(int before, int after, va_list args)
 		ret = bneg_apos(before, after, args);
 	return (ret);
 }
-
 
 int	special_zero(int before)
 {
@@ -72,12 +68,11 @@ int	special_zero(int before)
 	return (ret);
 }
 
-
 int	tri_before_positive(char *str, int before, int after, va_list args)
 {
-	int ret;
-	char c;
-	
+	int		ret;
+	char	c;
+
 	c = get_d_or_i(str);
 	ret = 0;
 	if (after < 0)
@@ -93,4 +88,3 @@ int	tri_before_positive(char *str, int before, int after, va_list args)
 	}
 	return (ret);
 }
-

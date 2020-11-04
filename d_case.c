@@ -1,8 +1,27 @@
 #include "ft_printf.h"
 
-//3
+int		bneg_aneg(int before, va_list args)
+{
+	int nb;
+	int len;
+	int nb_sp;
+	int ret;
 
-int	bneg_apos(int before, int after, va_list args)
+	nb = va_arg(args, int);
+	len = int_lgth(nb);
+	nb_sp = (before * -1) - len;
+	if (nb < 0)
+		nb_sp--;
+	if (nb_sp < 0)
+		nb_sp = 0;
+	ft_putnbr(nb);
+	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
+	while (nb_sp-- > 0)
+		ft_putchar(' ');
+	return (ret);
+}
+
+int		bneg_apos(int before, int after, va_list args)
 {
 	int nb;
 	int len;
@@ -35,29 +54,9 @@ int	bneg_apos(int before, int after, va_list args)
 	return (ret);
 }
 
-int	bneg_aneg(int before, va_list args)
-{
-	int nb;
-	int len;
-	int nb_sp;
-	int ret;
-
-	nb = va_arg(args, int);
-	len = int_lgth(nb);
-	nb_sp = (before * -1 ) - len;
-	if (nb < 0)
-		nb_sp--;
-	if (nb_sp < 0)
-		nb_sp = 0;
-	ft_putnbr(nb);
-	ret = (nb < 0) ? len + nb_sp + 1 : len + nb_sp;
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
-	return (ret);
-}
 
 
-int	bpos_aneg(int before, va_list args, char c, char *str)
+int		bpos_aneg(int before, va_list args, char c, char *str)
 {
 	int nb;
 	int nb_sp;

@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-//8 fonctions
-
 int	is_prn_p(char *str)
 {
 	while (*str != 'p')
@@ -13,11 +11,11 @@ int	is_prn_p(char *str)
 	return (0);
 }
 
-int tri_arg_p(char *str, va_list args)
+int	tri_arg_p(char *str, va_list args)
 {
-	int before;
-	int  ret;
-	unsigned long long nb;
+	int					before;
+	int					ret;
+	unsigned long long	nb;
 
 	ret = 0;
 	before = va_arg(args, int);
@@ -33,9 +31,9 @@ int tri_arg_p(char *str, va_list args)
 
 int	tri_moins_p(char *str, va_list args)
 {
-	int before;
-	int ret;
-	unsigned long long nb;
+	int					before;
+	int					ret;
+	unsigned long long	nb;
 
 	nb = (unsigned long long)va_arg(args, void *);
 	ret = 0;

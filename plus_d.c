@@ -1,11 +1,9 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
-int	bpos_zero(int before, char *str)
+int		bpos_zero(int before, char *str)
 {
-	int ret;
-	char c;
+	int		ret;
+	char	c;
 
 	c = get_d_or_i(str);
 	ret = before;
@@ -21,7 +19,7 @@ int	bpos_zero(int before, char *str)
 	return (ret);
 }
 
-int	bpos_else(int before, int nb) //blue GDOC
+int		bpos_else(int before, int nb)
 {
 	int len;
 	int nb_sp;
@@ -30,8 +28,8 @@ int	bpos_else(int before, int nb) //blue GDOC
 
 	nb_sp = 0;
 	nb_zr = 0;
-	len = int_lgth(nb); //3
-	if (nb < 0) 
+	len = int_lgth(nb);
+	if (nb < 0)
 		len++;
 	nb_sp = before - (nb_zr + len);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
@@ -59,7 +57,7 @@ int	is_in_string(char c)
 	return (0);
 }
 
-int	bpos_zero_before(int before, int nb)
+int		bpos_zero_before(int before, int nb)
 {
 	int ret;
 	int nb_zr;
@@ -75,30 +73,30 @@ int	bpos_zero_before(int before, int nb)
 	if (nb_zr < 0)
 		nb_zr = 0;
 	ret = (nb < 0) ? len + nb_zr + 1 : len + nb_zr;
-		while (nb_zr-- > 0)
+	while (nb_zr-- > 0)
 		ft_putchar('0');
 	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
 	return (ret);
 }
 
-int     plus_d(char *str, va_list args)
+int		plus_d(char *str, va_list args)
 {
-    int nb;
-    int ret;
-    int number;
-    char c;
+	int		nb;
+	int		ret;
+	int		number;
+	char	c;
 
-    number = va_arg(args, int);
-    c = get_d_or_i(str);
-    nb = get_nbatoi_c(str, c); //before - et
-    if (is_zero_before_c(str, c))
-    	ret = bpos_zero_before(nb, number);
-    else
-    {
-    	if (number == 0)
-    		ret = bpos_zero(nb, str);
-    	else
-		ret = bpos_else(nb, number);
-    }
-    return (ret);
+	number = va_arg(args, int);
+	c = get_d_or_i(str);
+	nb = get_nbatoi_c(str, c);
+	if (is_zero_before_c(str, c))
+		ret = bpos_zero_before(nb, number);
+	else
+	{
+		if (number == 0)
+			ret = bpos_zero(nb, str);
+		else
+			ret = bpos_else(nb, number);
+	}
+	return (ret);
 }

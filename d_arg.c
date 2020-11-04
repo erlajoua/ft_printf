@@ -1,8 +1,6 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
-int	bpos_apos(int before, int after, va_list args)
+int		bpos_apos(int before, int after, va_list args)
 {
 	int nb;
 	int len;
@@ -17,9 +15,8 @@ int	bpos_apos(int before, int after, va_list args)
 		return (special_zero(before));
 	len = int_lgth(nb);
 	if (after >= len)
-		nb_zr = after - len; 
-	if (nb < 0) 
-		len++;
+		nb_zr = after - len;
+	nb < 0 ? len++ : 0;
 	nb_sp = before - (nb_zr + len);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = len + nb_sp + nb_zr;
@@ -34,11 +31,11 @@ int	bpos_apos(int before, int after, va_list args)
 
 int		tri_prn_d(char *str, va_list args)
 {
-	int before;
-	int after;
-	int ret;
-	char c;
-	
+	int		before;
+	int		after;
+	int		ret;
+	char	c;
+
 	c = get_d_or_i(str);
 	ret = 0;
 	if (is_argb_d(str))
@@ -49,7 +46,7 @@ int		tri_prn_d(char *str, va_list args)
 		after = va_arg(args, int);
 	else
 		after = get_after_c(str, c);
-	if (is_moins_before_c(str, '.') == 1 && before > 0) 
+	if (is_moins_before_c(str, '.') == 1 && before > 0)
 		before *= -1;
 	if (before < 0)
 		ret = tri_before_negative(before, after, args);
@@ -60,9 +57,9 @@ int		tri_prn_d(char *str, va_list args)
 
 int		is_argb_d(char *str)
 {
-	while(*str != '.')
+	while (*str != '.')
 	{
-		if(*str == '*')
+		if (*str == '*')
 			return (1);
 		str++;
 	}
@@ -71,12 +68,12 @@ int		is_argb_d(char *str)
 
 int		is_arga_c(char *str, char c)
 {
-	while(*str != '.')
+	while (*str != '.')
 		str++;
 	str++;
-	while(*str != c)
+	while (*str != c)
 	{
-		if(*str == '*')
+		if (*str == '*')
 			return (1);
 		str++;
 	}
@@ -85,9 +82,9 @@ int		is_arga_c(char *str, char c)
 
 int		tri_arg_d(char *str, va_list args)
 {
-	int ret;
-	int arg;
-	char c;
+	int		ret;
+	int		arg;
+	char	c;
 
 	c = get_d_or_i(str);
 	ret = 0;
@@ -105,5 +102,5 @@ int		tri_arg_d(char *str, va_list args)
 		else
 			ret = bpos_aneg(arg, args, ' ', str);
 	}
-	return(ret);
+	return (ret);
 }
