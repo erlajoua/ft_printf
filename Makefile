@@ -14,7 +14,7 @@ SRCS    =	ft_printf.c \
 		p_flag.c \
 		s_flag.c \
 		u_flag.c \
-		x_flag.c \
+		xx_flag.c \
 		X_flag.c \
 
 OBJS    =   $(SRCS:.c=.o)
