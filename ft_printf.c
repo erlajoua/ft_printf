@@ -10,7 +10,7 @@ char	find_type(char *str)
 	int i;
 
 	i = 0;
-	while(str[i] != 'x' && str[i] != 'd' && str[i] != 'i' && str[i] != 'c' && str[i] != 'p' && str[i] != 's' && str[i] != 'u')
+	while(str[i] != 'X' && str[i] != 'x' && str[i] != 'd' && str[i] != 'i' && str[i] != 'c' && str[i] != 'p' && str[i] != 's' && str[i] != 'u')
 		i++;
 	return (str[i]);
 }
@@ -47,6 +47,8 @@ int		ft_tri(char *str, va_list args)
 		ret = u_flag(str, args);
 	else if (type_flag == 'x')
 		ret = x_flag(str, args);
+	else if (type_flag == 'X')
+		ret = X_flag(str, args);
 	return (ret);
 }
 
