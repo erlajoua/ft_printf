@@ -129,7 +129,7 @@ int	bneg_apos_x(int before, int after, va_list args)
 	ret = len + nb_sp + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_x(nb);
+	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
