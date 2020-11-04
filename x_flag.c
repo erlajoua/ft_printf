@@ -144,9 +144,10 @@ int	bneg_aneg_x(int before, va_list args)
 
 	nb = va_arg(args, unsigned int);
 	len = lgt_hex(nb); //3
+	//printf("len : %d\n", len);
 	nb_sp = (before * -1 ) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	ft_putnbr_x(nb);
+	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
 	ret = len + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
