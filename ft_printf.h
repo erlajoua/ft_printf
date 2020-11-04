@@ -23,6 +23,7 @@ int		int_lgth(int nb);
 int		uint_lgth(unsigned int nb);
 void		ft_putnbr(int nb);
 void		ft_putnbr_u(unsigned int nb);
+void		ft_putnbr_x(unsigned int nb);
 int		zr_then_spaces(va_list args, int before, int after);
 int		nb_then_spaces(va_list args, int before);
 int		prn_b1_a0(va_list args, int before);
@@ -85,5 +86,7 @@ int		s_bpos(int before, va_list args);
 int		u_flag(char *str, va_list args);
 int		is_zero_before_c(char *str, char c);
 char		get_d_or_i(char *str);
+int		x_flag(char *str, va_list args);
+int		lgt_hex(unsigned int nb);
 
 #endif

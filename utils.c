@@ -10,6 +10,21 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+int	lgt_hex(unsigned int nb)
+{
+	int i;
+
+	i = 0;
+	if (nb == 0)
+		return (1);
+	while (nb != 0)
+	{
+		nb /= 16;
+		i++;
+	}
+	return (i);
+}
+
 void	ft_putstrn(char *str, int n)
 {
 	int i;
@@ -62,4 +77,14 @@ void	ft_putnbr_u(unsigned int nb)
 	if (nb > 9)
 		ft_putnbr(nb / 10);
 	ft_putchar(nb % 10 + '0');
+}
+
+void	ft_putnbr_x(unsigned int nb)
+{
+	char *base;
+
+	base = "0123456789abcdef";
+	if (nb > 15)
+		ft_putnbr(nb / 16);
+	ft_putchar(base[nb % 16]);
 }
