@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//5 fonctions
+
 void	ft_putchar(char c)
 {
 	write(1, &c ,1);

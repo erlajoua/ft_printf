@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//5 fonctions
+
 int	bpos_zero(int before, char *str)
 {
 	int ret;
@@ -51,17 +53,6 @@ int	is_in_string(char c)
 	while (*str)
 	{
 		if (c == *str)
-			return (1);
-		str++;
-	}
-	return (0);
-}
-
-int	is_zero_before_c(char *str, char c)
-{
-	while (*str != c && !is_in_string(*str))
-	{
-		if (*str == '0')
 			return (1);
 		str++;
 	}

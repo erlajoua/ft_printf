@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//2 fonctions
+
 int		int_lgth(int nb)
 {
 	int ret;

@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//3 fonctions
+
 int		get_nbatoi_c(char *str, char c)
 {
 	int ret;

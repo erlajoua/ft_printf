@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+//5 fonctions
+
 int	c_bneg(int before, va_list args)
 {
 	int ret;

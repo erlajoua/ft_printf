@@ -3,19 +3,30 @@ LIBFT   =   lib
 SRC		=   SRCS
 
 SRCS    =	ft_printf.c \
-		plus_d.c \
-		moins_d.c \
-		prn_d.c \
-		arg_d.c \
-		d_flag.c \
 		c_flag.c \
-		utils.c \
-		common.c \
+		d_arg.c \
+		d_case.c \
+		d_tri.c \
+		moins_d.c \
+		p_case.c \
 		p_flag.c \
+		plus_d.c \
+		s_case.c \
 		s_flag.c \
+		s_tri.c \
+		u_arg.c \
+		u_case.c \
 		u_flag.c \
+		utils.c \
+		utils2.c \
+		utils3.c \
+		u_tri.c \
+		x_case.c \
+		x_flag.c \
+		x_tri.c \
+		xx_case.c \
 		xx_flag.c \
-		X_flag.c \
+		xx_tri.c \
 
 OBJS    =   $(SRCS:.c=.o)
 HEAD    =   ft_printf.h
