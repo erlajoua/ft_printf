@@ -81,10 +81,13 @@ void	ft_putnbr_u(unsigned int nb)
 
 void	ft_putnbr_x(unsigned int nb)
 {
-	char *base;
+	char *basehexa;
 
-	base = "0123456789abcdef";
-	if (nb > 15)
-		ft_putnbr(nb / 16);
-	ft_putchar(base[nb % 16]);
+	basehexa = "0123456789abcdef";
+	if (!nb)
+	{
+		return ;
+	}
+	ft_putnbr_x(nb / 16);
+	ft_putchar(basehexa[nb % 16]);
 }

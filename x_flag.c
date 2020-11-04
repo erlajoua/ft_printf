@@ -1,6 +1,4 @@
 #include "ft_printf.h"
-
-#include "ft_printf.h"
 //plus_u
 
 
@@ -31,7 +29,7 @@ int	bpos_else_x(int before, unsigned int nb) //blue GDOC
 
 	nb_sp = 0;
 	nb_zr = 0;
-	len = uint_lgth(nb); //3
+	len = lgt_hex(nb); //3
 	nb_sp = before - (nb_zr + len);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = len + nb_sp + nb_zr;
@@ -74,7 +72,7 @@ int	bpos_apos_x(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero_x(before));
-	len = uint_lgth(nb);
+	len = lgt_hex(nb); //3
 	if (after >= len)
 		nb_zr = after - len;
 	nb_sp = before - (nb_zr + len);
@@ -97,8 +95,8 @@ int	bpos_aneg_x(int before, char *str, char c, va_list args)
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
-		return (bpos_zero(before, str)); //je dev
-	len = uint_lgth(nb); //2
+		return (bpos_zero_x(before, str)); //je dev
+	len = lgt_hex(nb); //3
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
@@ -123,7 +121,7 @@ int	bneg_apos_x(int before, int after, va_list args)
 	nb = va_arg(args, unsigned int);
 	if (nb == 0 && after == 0)
 		return (special_zero(before));
-	len = uint_lgth(nb);
+	len = lgt_hex(nb); //3
 	if (before < 0)
 		before = -before;
 	if (after >= len)
@@ -147,7 +145,7 @@ int	bneg_aneg_x(int before, va_list args)
 	int ret;
 
 	nb = va_arg(args, unsigned int);
-	len = uint_lgth(nb);
+	len = lgt_hex(nb); //3
 	nb_sp = (before * -1 ) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ft_putnbr_x(nb);
@@ -165,7 +163,7 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	int nb_zr;
 	int len;
 
-	len = uint_lgth(nb);
+	len = lgt_hex(nb); //3
 	nb_zr = before - len;
 	if (nb_zr < 0)
 		nb_zr = 0;
@@ -308,4 +306,3 @@ int	x_flag(char *str, va_list args)
 		ret = plus_x(str, args);
 	return (ret);
 }
-

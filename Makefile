@@ -2,7 +2,7 @@ NAME    =   libftprintf.a
 LIBFT   =   lib
 SRC		=   SRCS
 
-SRCS    =	ft_printf.c\
+SRCS    =	ft_printf.c \
 		plus_d.c \
 		moins_d.c \
 		prn_d.c \
