@@ -162,7 +162,7 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	int ret;
 	int nb_zr;
 	int len;
-
+	
 	len = lgt_hex(nb); //3
 	nb_zr = before - len;
 	if (nb_zr < 0)
@@ -170,7 +170,7 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	ret = len + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_x(nb);
+	nb != 0 ? ft_putnbr_x(nb): ft_putchar('0');
 	return (ret);
 }
 
