@@ -1,8 +1,6 @@
 #include "ft_printf.h"
 //plus_u
 
-
-
 int	bpos_zero_x(int before, char *str)
 {
 	int ret;
@@ -37,7 +35,7 @@ int	bpos_else_x(int before, unsigned int nb) //blue GDOC
 		ft_putchar(' ');
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_u(nb);
+	ft_putnbr_x(nb);
 	return (ret);
 }
 
