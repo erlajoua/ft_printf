@@ -114,7 +114,7 @@ int	bpos_aneg_u(int before, char *str, char c, va_list args)
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
-		return (bpos_zero(before, str)); //je dev
+		return (bpos_zero_u(before, str)); //je dev
 	len = uint_lgth(nb); //2
 	nb_sp = 0;
 	if (before >= len)
