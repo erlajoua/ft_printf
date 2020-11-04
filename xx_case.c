@@ -23,7 +23,7 @@ int	bpos_apos_X(int before, int after, va_list args)
 		ft_putchar(' ');
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	nb != 0 ? ft_putnbr_X(nb) : ft_putchar('0');
+	nb != 0 ? ft_putnbr_xx(nb) : ft_putchar('0');
 	return (ret);
 }
 
@@ -36,8 +36,8 @@ int	bpos_aneg_X(int before, char *str, char c, va_list args)
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
-		return (bpos_zero_X(before, str)); //je dev
-	len = lgt_hex(nb); //3
+		return (bpos_zero_X(before, str));
+	len = lgt_hex(nb);
 	nb_sp = 0;
 	if (before >= len)
 		nb_sp = before - len;
@@ -45,7 +45,7 @@ int	bpos_aneg_X(int before, char *str, char c, va_list args)
 	ret = len + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(c);
-	ft_putnbr_X(nb);
+	ft_putnbr_xx(nb);
 	return (ret);
 }
 
@@ -72,7 +72,7 @@ int	bneg_apos_X(int before, int after, va_list args)
 	ret = len + nb_sp + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	nb != 0 ? ft_putnbr_X(nb) : ft_putchar('0');
+	nb != 0 ? ft_putnbr_xx(nb) : ft_putchar('0');
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
@@ -86,18 +86,15 @@ int	bneg_aneg_X(int before, va_list args)
 	int ret;
 
 	nb = va_arg(args, unsigned int);
-	len = lgt_hex(nb); //3
-	//printf("len : %d\n", len);
+	len = lgt_hex(nb);
 	nb_sp = (before * -1 ) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
-	nb != 0 ? ft_putnbr_X(nb) : ft_putchar('0');
+	nb != 0 ? ft_putnbr_xx(nb) : ft_putchar('0');
 	ret = len + nb_sp;
 	while (nb_sp-- > 0)
 		ft_putchar(' ');
 	return (ret);
 }
-
-//tri
 
 int	bpos_zero_before_X(int before, unsigned int nb)
 {
@@ -112,7 +109,7 @@ int	bpos_zero_before_X(int before, unsigned int nb)
 	ret = len + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	nb != 0 ? ft_putnbr_X(nb): ft_putchar('0');
+	nb != 0 ? ft_putnbr_xx(nb): ft_putchar('0');
 	return (ret);
 }
 

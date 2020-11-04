@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
 int	bpos_zero_u(int before, char *str)
 {
 	int ret;
@@ -38,7 +36,7 @@ int	uint_lgth(unsigned int nb)
 	ret = 0;
 	if (nb == 0 || nb == -0)
 		return (1);
-	while(nb > 0)
+	while (nb > 0)
 	{
 		nb /= 10;
 		ret++;
@@ -48,9 +46,9 @@ int	uint_lgth(unsigned int nb)
 
 int	plus_u(char *str, va_list args)
 {
-	int nb;
-	int ret;
-	unsigned int number;
+	int					nb;
+	int					ret;
+	unsigned int		number;
 
 	number = va_arg(args, unsigned int);
 	nb = get_nbatoi_c(str, 'u');
@@ -64,7 +62,6 @@ int	plus_u(char *str, va_list args)
 			ret = bpos_else_u(nb, number);
 	}
 	return (ret);
-
 }
 
 int	u_flag(char *str, va_list args)

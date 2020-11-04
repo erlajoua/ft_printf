@@ -1,14 +1,12 @@
 #include "ft_printf.h"
 
-//5 fonctions
-
-int	bpos_apos_u(int before, int after, va_list args)
+int		bpos_apos_u(int before, int after, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_sp;
-	int nb_zr;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_sp;
+	int					nb_zr;
+	int					ret;
 
 	nb_sp = 0;
 	nb_zr = 0;
@@ -29,12 +27,12 @@ int	bpos_apos_u(int before, int after, va_list args)
 	return (ret);
 }
 
-int	bpos_aneg_u(int before, char *str, char c, va_list args)
+int		bpos_aneg_u(int before, char *str, char c, va_list args)
 {
-	unsigned int nb;
-	int nb_sp;
-	int len;
-	int ret;
+	unsigned int		nb;
+	int					nb_sp;
+	int					len;
+	int					ret;
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
@@ -51,13 +49,13 @@ int	bpos_aneg_u(int before, char *str, char c, va_list args)
 	return (ret);
 }
 
-int	bneg_apos_u(int before, int after, va_list args)
+int		bneg_apos_u(int before, int after, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_zr;
-	int nb_sp;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_zr;
+	int					nb_sp;
+	int					ret;
 
 	nb_zr = 0;
 	nb_sp = 0;
@@ -80,16 +78,16 @@ int	bneg_apos_u(int before, int after, va_list args)
 	return (ret);
 }
 
-int	bneg_aneg_u(int before, va_list args)
+int		bneg_aneg_u(int before, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_sp;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_sp;
+	int					ret;
 
 	nb = va_arg(args, unsigned int);
 	len = uint_lgth(nb);
-	nb_sp = (before * -1 ) - len;
+	nb_sp = (before * -1) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ft_putnbr_u(nb);
 	ret = len + nb_sp;
@@ -98,11 +96,11 @@ int	bneg_aneg_u(int before, va_list args)
 	return (ret);
 }
 
-int	bpos_zero_before_u(int before, unsigned int nb)
+int		bpos_zero_before_u(int before, unsigned int nb)
 {
-	int ret;
-	int nb_zr;
-	int len;
+	int			ret;
+	int			nb_zr;
+	int			len;
 
 	len = uint_lgth(nb);
 	nb_zr = before - len;

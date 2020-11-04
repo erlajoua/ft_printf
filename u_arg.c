@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	bpos_else_u(int before, unsigned int nb)
+int		bpos_else_u(int before, unsigned int nb)
 {
 	int len;
 	int nb_sp;

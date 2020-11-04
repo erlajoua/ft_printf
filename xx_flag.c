@@ -34,7 +34,7 @@ int	bpos_else_X(int before, unsigned int nb)
 		ft_putchar(' ');
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_X(nb);
+	ft_putnbr_xx(nb);
 	return (ret);
 }
 
