@@ -47,6 +47,7 @@ int	special_zero_x(int before)
 {
 	int ret;
 
+	puts("salut");
 	if (before < 0)
 		before = -before;
 	ret = before;
@@ -80,7 +81,7 @@ int	bpos_apos_x(int before, int after, va_list args)
 		ft_putchar(' ');
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	ft_putnbr_x(nb);
+	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
 	return (ret);
 }
 
