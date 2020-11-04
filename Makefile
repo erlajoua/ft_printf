@@ -6,6 +6,7 @@ SRCS    =	ft_printf.c \
 		c_flag.c \
 		d_arg.c \
 		d_case.c \
+		d_flag.c \
 		d_tri.c \
 		moins_d.c \
 		p_case.c \
