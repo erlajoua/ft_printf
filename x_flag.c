@@ -47,7 +47,7 @@ int	special_zero_x(int before)
 {
 	int ret;
 
-	puts("salut");
+//	puts("salut");
 	if (before < 0)
 		before = -before;
 	ret = before;
