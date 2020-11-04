@@ -97,5 +97,6 @@ int		    tri_arg_d(char *str, va_list args);
 int	    	bpos_zero_X(int nb, char *str);
 int		    special_zero_X(int before);
 int		    lgt_heX(unsigned int nb);
+void		print_sp(int nb);
 
 #endif
