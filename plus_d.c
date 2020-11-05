@@ -43,7 +43,7 @@ int		bpos_else(int before, int nb)
 	return (ret);
 }
 
-int	is_in_string(char c)
+int		is_in_string(char c)
 {
 	char *str;
 

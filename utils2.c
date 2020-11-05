@@ -1,5 +1,11 @@
 #include "ft_printf.h"
 
+void	print_zr(int nb)
+{
+	while (nb-- > 0)
+		ft_putchar('0');
+}
+
 void	print_sp(int nb)
 {
 	while (nb-- > 0)

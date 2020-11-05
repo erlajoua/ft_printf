@@ -40,17 +40,13 @@ int		bneg_apos(int before, int after, va_list args)
 	if (after >= len)
 		nb_zr = after - len;
 	nb_sp = before - (nb_zr + len);
-	if (nb < 0)
-		nb_sp--;
-	if (nb_sp < 0)
-		nb_sp = 0;
+	nb < 0 ? nb_sp-- : 0;
+	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	nb < 0 ? ft_putchar('-') : 0;
 	ret = (nb < 0) ? len + nb_sp + nb_zr + 1 : len + nb_sp + nb_zr;
-	while (nb_zr-- > 0)
-		ft_putchar('0');
+	print_zr(nb_zr);
 	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
+	print_sp(nb_sp);
 	return (ret);
 }
 

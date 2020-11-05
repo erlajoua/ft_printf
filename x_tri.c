@@ -85,4 +85,3 @@ int	tri_prn_x(char *str, va_list args)
 		ret = tri_bpos_x(str, before, after, args);
 	return (ret);
 }
-

@@ -8,7 +8,6 @@ int	s_bneg_apos(int before, int after, va_list args)
 	int		nb_sp;
 	int		ret;
 
-	ret = 0;
 	nb_sp = 0;
 	n = 0;
 	len = 0;
@@ -26,8 +25,7 @@ int	s_bneg_apos(int before, int after, va_list args)
 	if (str)
 		ft_putstrn(str, n);
 	ret = n + nb_sp;
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
+	print_sp(nb_sp);
 	return (ret);
 }
 
@@ -56,8 +54,7 @@ int	s_bneg_aneg(int before, int after, va_list args)
 	ret = nb_sp + n;
 	if (str)
 		ft_putstrn(str, n);
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
+	print_sp(nb_sp);
 	return (ret);
 }
 
@@ -84,8 +81,7 @@ int	s_bpos_apos(int before, int after, va_list args)
 	nb_sp = (before - n);
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	ret = n + nb_sp;
-	while (nb_sp-- > 0)
-		ft_putchar(' ');
+	print_sp(nb_sp);
 	if (str)
 		ft_putstrn(str, n);
 	return (ret);
