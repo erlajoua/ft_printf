@@ -100,5 +100,6 @@ int		    lgt_heX(unsigned int nb);
 void		print_sp(int nb);
 int         tri_bneg_xx(int before, int after, va_list args);
 int         tri_bpos_xx(char *str, int before, int after, va_list args);
+int		x_flag(char *str, va_list args);
 
 #endif
