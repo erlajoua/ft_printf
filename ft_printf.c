@@ -13,7 +13,7 @@ char	find_type(char *str)
 
 	i = 1;
 	j = 0;
-	flags = "Xxdicpsu";
+	flags = "Xxdicpsu%";
 	while (str[i])
 	{
 		j = 0;
@@ -33,9 +33,13 @@ int		get_lgth_flag(char *str)
 
 	i = 0;
 	type_flag = find_type(str);
+	if (type_flag == '%')
+		str++;
 	while (str[i] != type_flag && str[i])
 		i++;
 	i--;
+	if (type_flag == '%')
+		i++;
 	return (i);
 }
 
@@ -60,6 +64,8 @@ int		ft_tri(char *str, va_list args)
 		ret = x_flag(str, args);
 	else if (type_flag == 'X')
 		ret = xx_flag(str, args);
+	else if (type_flag == '%')
+		ret = percent_flag(str + 1, args);
 	return (ret);
 }
 
