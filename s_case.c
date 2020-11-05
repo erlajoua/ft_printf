@@ -2,11 +2,11 @@
 
 int	s_bneg_apos(int before, int after, va_list args)
 {
-	char *str;
-	int n;
-	int len;
-	int nb_sp;
-	int ret;
+	char	*str;
+	int		n;
+	int		len;
+	int		nb_sp;
+	int		ret;
 
 	ret = 0;
 	nb_sp = 0;
@@ -33,13 +33,13 @@ int	s_bneg_apos(int before, int after, va_list args)
 
 int	s_bneg_aneg(int before, int after, va_list args)
 {
-	int n;
-	int ret;
-	int len;
-	int nb_sp;
-	char *str;
-	(void)after;
+	int		n;
+	int		ret;
+	int		len;
+	int		nb_sp;
+	char	*str;
 
+	(void)after;
 	str = va_arg(args, char *);
 	nb_sp = 0;
 	len = 0;
@@ -63,11 +63,11 @@ int	s_bneg_aneg(int before, int after, va_list args)
 
 int	s_bpos_apos(int before, int after, va_list args)
 {
-	char *str;
-	int n;
-	int len;
-	int nb_sp;
-	int ret;
+	char	*str;
+	int		n;
+	int		len;
+	int		nb_sp;
+	int		ret;
 
 	ret = 0;
 	nb_sp = 0;
@@ -92,12 +92,12 @@ int	s_bpos_apos(int before, int after, va_list args)
 }
 
 int	s_bpos_aneg(int before, va_list args)
-{	
-	int n;
-	int ret;
-	int len;
-	int nb_sp;
-	char *str;
+{
+	int		n;
+	int		ret;
+	int		len;
+	int		nb_sp;
+	char	*str;
 
 	str = va_arg(args, char *);
 	nb_sp = 0;

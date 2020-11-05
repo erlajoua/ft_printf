@@ -1,7 +1,5 @@
 #include "ft_printf.h"
 
-
-
 int	tri_moins_u(char *str, va_list args)
 {
 	int ret;
@@ -11,7 +9,6 @@ int	tri_moins_u(char *str, va_list args)
 	nb = get_nbatoi_c(str, 'u');
 	ret = bneg_aneg_u(nb, args);
 	return (ret);
-
 }
 
 int	tri_arg_u(char *str, va_list args)
@@ -34,8 +31,7 @@ int	tri_arg_u(char *str, va_list args)
 		else
 			ret = bpos_aneg_u(arg, str, ' ', args);
 	}
-	return(ret);
-
+	return (ret);
 }
 
 int	tri_bneg_u(int before, int after, va_list args)

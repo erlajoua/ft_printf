@@ -2,9 +2,9 @@
 
 int	plus_xx(char *str, va_list args)
 {
-	int	        	nb;
-	int		        ret;
-	unsigned int	number;
+	int					nb;
+	int					ret;
+	unsigned int		number;
 
 	number = va_arg(args, unsigned int);
 	nb = get_nbatoi_c(str, 'X');

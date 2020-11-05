@@ -65,3 +65,26 @@ int	x_flag(char *str, va_list args)
 		ret = plus_x(str, args);
 	return (ret);
 }
+
+int	tri_arg_x(char *str, va_list args)
+{
+	int ret;
+	int arg;
+
+	ret = 0;
+	arg = va_arg(args, int);
+	if (is_moins_before_c(str, '*') == 1 && arg > 0)
+		arg *= -1;
+	if (arg < 0)
+	{
+		ret = bneg_aneg_x(arg, args);
+	}
+	else
+	{
+		if (is_zero_before_c(str, 'x'))
+			ret = bpos_aneg_x(arg, str, '0', args);
+		else
+			ret = bpos_aneg_x(arg, str, ' ', args);
+	}
+	return (ret);
+}
