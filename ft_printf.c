@@ -20,7 +20,7 @@ char	find_type(char *str)
 		while (str[i] != flags[j] && flags[j])
 			j++;
 		if (str[i] == flags[j])
-			return (types[j]);
+			return (flags[j]);
 		i++;
 	}
 	return (0);
