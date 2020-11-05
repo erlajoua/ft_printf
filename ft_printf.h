@@ -112,5 +112,7 @@ int			tri_moins_per(char *str, va_list args);
 int			per_bneg_apos(int before, int after);
 int			per_bpos_apos(int before, int after, char c);
 int			is_zero_bef(char *str);
+int			tri_before_pos_per(int before, int after, char *str, va_list args);
+int			tri_before_neg_per(int before, int after, va_list args);
 
 #endif
