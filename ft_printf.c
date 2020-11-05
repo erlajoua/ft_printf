@@ -46,7 +46,7 @@ int		ft_tri(char *str, va_list args)
 	else if (type_flag == 'u')
 		ret = u_flag(str, args);
 	else if (type_flag == 'x')
-		ret = xx_flag(str, args);
+		ret = x_flag(str, args);
 	else if (type_flag == 'X')
 		ret = xx_flag(str, args);
 	return (ret);
