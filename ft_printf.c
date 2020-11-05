@@ -7,13 +7,13 @@ void	ft_putchar(char c)
 
 char	find_type(char *str)
 {
-	int i;
-	int j;
+	int		i;
+	int		j;
+	char	*flags;
 
 	i = 1;
 	j = 0;
-	char *flags = "Xxdicpsu";
-
+	flags = "Xxdicpsu";
 	while (str[i])
 	{
 		j = 0;
@@ -76,16 +76,9 @@ int		ft_printf(const char *format, ...)
 	while (*str)
 	{
 		if (*str != '%')
-		{
-			ft_putchar(*str);
-			ret++;
-		}
-		else if (*str == '%' && *(str + 1) == '%')
-		{
-			ret++;
-			str++;
-			ft_putchar('%');
-		}
+			ft_putcharac(*str, &ret);
+		else if (*str == '%' && *(str + 1) == '%' && str++)
+			ft_putcharac('%', &ret);
 		else
 		{
 			ret += ft_tri(str, args);
