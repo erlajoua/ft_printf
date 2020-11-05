@@ -30,7 +30,9 @@ int	get_before_d(char *str)
 
 	moins = 0;
 	ret = 0;
-	str++;
+//	printf("STR : %s\n", str);
+//	if (*str != '.')
+//		str++;
 	while (*str != '.')
 	{
 		if (*str == '-')

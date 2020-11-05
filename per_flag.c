@@ -10,9 +10,16 @@ int	tri_arg_per(char *str, va_list args)
 	if (is_moins_before_c(str, '*') && before > 0)
 		before = -before;
 	if (before < 0)
+	{
 		ret = per_bneg_aneg(before, 0);
+	}
 	else
-		ret = per_bpos_aneg(before);
+	{
+		if (is_zero_bef(str))
+			ret = per_bpos_aneg(before, '0', str);
+		else
+			ret = per_bpos_aneg(before, ' ', str);
+	}
 	return (ret);
 }
 

@@ -106,10 +106,11 @@ int			xx_flag(char *str, va_list args);
 int			x_flag(char *str, va_list args);
 int			per_bneg_aneg(int before, int after);
 int			percent_flag(char *str, va_list args);
-int			per_bpos_aneg(int before);
+int			per_bpos_aneg(int before, char c, char *str);
 int			tri_prn_per(char *str, va_list args);
 int			tri_moins_per(char *str, va_list args);
 int			per_bneg_apos(int before, int after);
-int			per_bpos_apos(int before, int after);
+int			per_bpos_apos(int before, int after, char c);
+int			is_zero_bef(char *str);
 
 #endif
