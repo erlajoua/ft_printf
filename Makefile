@@ -29,6 +29,9 @@ SRCS    =	ft_printf.c \
 		xx_case.c \
 		xx_flag.c \
 		xx_tri.c \
+		per_flag.c \
+		per_case.c \
+		per_tri.c \
 
 OBJS    =   $(SRCS:.c=.o)
 HEAD    =   ft_printf.h

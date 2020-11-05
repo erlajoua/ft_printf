@@ -5,12 +5,13 @@ int	tri_moins_per(char *str, va_list args)
 	int before;
 	int ret;
 
+	(void)args;
 	ret = 0;
 	before = get_nbatoi_c(str, '%');
 	if (before < 0)
-		ret = per_bneg_aneg(before, 0, args);
+		ret = per_bneg_aneg(before, 0);
 	else
-		ret = per_bpos_aneg(before, args);
+		ret = per_bpos_aneg(before);
 	return (ret);
 }
 
@@ -18,11 +19,12 @@ int	tri_before_neg_per(int before, int after, va_list args)
 {
 	int ret;
 
+	(void)args;
 	ret = 0;
 	if (after < 0)
-		ret = per_bneg_aneg(before, after, args);
+		ret = per_bneg_aneg(before, after);
 	else
-		ret = per_bneg_apos(before, after, args);
+		ret = per_bneg_apos(before, after);
 	return (ret);
 }
 
@@ -30,11 +32,12 @@ int	tri_before_pos_per(int before, int after, va_list args)
 {
 	int ret;
 
+	(void)args;
 	ret = 0;
 	if (after < 0)
-		ret = per_bpos_aneg(before, args);
+		ret = per_bpos_aneg(before);
 	else
-		ret = per_bpos_apos(before, after, args);
+		ret = per_bpos_apos(before, after);
 	return (ret);
 }
 
