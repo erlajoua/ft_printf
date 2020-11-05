@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int		int_lgth(int nb)
 {

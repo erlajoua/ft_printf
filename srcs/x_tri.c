@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int	plus_x(char *str, va_list args)
 {

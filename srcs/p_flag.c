@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int	is_prn_p(char *str)
 {

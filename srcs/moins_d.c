@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int		get_nbatoi_c(char *str, char c)
 {

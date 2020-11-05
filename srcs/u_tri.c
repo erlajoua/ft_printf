@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int	tri_moins_u(char *str, va_list args)
 {

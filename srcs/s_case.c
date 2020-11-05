@@ -1,4 +1,4 @@
-#include "ft_printf.h"
+#include "../header/ft_printf.h"
 
 int	s_bneg_apos(int before, int after, va_list args)
 {
