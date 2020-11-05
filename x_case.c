@@ -2,11 +2,11 @@
 
 int	bpos_apos_x(int before, int after, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_sp;
-	int nb_zr;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_sp;
+	int					nb_zr;
+	int					ret;
 
 	nb_sp = 0;
 	nb_zr = 0;
@@ -29,10 +29,10 @@ int	bpos_apos_x(int before, int after, va_list args)
 
 int	bpos_aneg_x(int before, char *str, char c, va_list args)
 {
-	unsigned int nb;
-	int nb_sp;
-	int len;
-	int ret;
+	unsigned int		nb;
+	int					nb_sp;
+	int					len;
+	int					ret;
 
 	nb = va_arg(args, unsigned int);
 	if (nb == 0)
@@ -51,11 +51,11 @@ int	bpos_aneg_x(int before, char *str, char c, va_list args)
 
 int	bneg_apos_x(int before, int after, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_zr;
-	int nb_sp;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_zr;
+	int					nb_sp;
+	int					ret;
 
 	nb_zr = 0;
 	nb_sp = 0;
@@ -80,14 +80,14 @@ int	bneg_apos_x(int before, int after, va_list args)
 
 int	bneg_aneg_x(int before, va_list args)
 {
-	unsigned int nb;
-	int len;
-	int nb_sp;
-	int ret;
+	unsigned int		nb;
+	int					len;
+	int					nb_sp;
+	int					ret;
 
 	nb = va_arg(args, unsigned int);
 	len = lgt_hex(nb);
-	nb_sp = (before * -1 ) - len;
+	nb_sp = (before * -1) - len;
 	nb_sp = (nb_sp < 0) ? 0 : nb_sp;
 	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
 	ret = len + nb_sp;
@@ -101,7 +101,7 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	int ret;
 	int nb_zr;
 	int len;
-	
+
 	len = lgt_hex(nb);
 	nb_zr = before - len;
 	if (nb_zr < 0)
@@ -109,6 +109,6 @@ int	bpos_zero_before_x(int before, unsigned int nb)
 	ret = len + nb_zr;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	nb != 0 ? ft_putnbr_x(nb): ft_putchar('0');
+	nb != 0 ? ft_putnbr_x(nb) : ft_putchar('0');
 	return (ret);
 }

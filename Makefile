@@ -23,7 +23,7 @@ SRCS    =	ft_printf.c \
 		utils3.c \
 		u_tri.c \
 		x_case.c \
-		x_flag.c \
+		xx_flag.c \
 		x_tri.c \
 		xx_case.c \
 		xx_flag.c \

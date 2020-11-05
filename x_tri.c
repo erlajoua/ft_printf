@@ -2,9 +2,9 @@
 
 int	plus_x(char *str, va_list args)
 {
-	int nb;
-	int ret;
-	unsigned int number;
+	unsigned int		number;
+	int					nb;
+	int					ret;
 
 	number = va_arg(args, unsigned int);
 	nb = get_nbatoi_c(str, 'x');
@@ -108,3 +108,4 @@ int	tri_prn_x(char *str, va_list args)
 		ret = tri_bpos_x(str, before, after, args);
 	return (ret);
 }
+

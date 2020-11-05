@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	bpos_zero_X(int before, char *str)
+int	bpos_zero_xx(int before, char *str)
 {
 	int ret;
 
@@ -17,7 +17,7 @@ int	bpos_zero_X(int before, char *str)
 	return (ret);
 }
 
-int	bpos_else_X(int before, unsigned int nb)
+int	bpos_else_xx(int before, unsigned int nb)
 {
 	int len;
 	int nb_sp;
@@ -38,7 +38,7 @@ int	bpos_else_X(int before, unsigned int nb)
 	return (ret);
 }
 
-int	special_zero_X(int before)
+int	special_zero_xx(int before)
 {
 	int ret;
 
@@ -50,18 +50,42 @@ int	special_zero_X(int before)
 	return (ret);
 }
 
-int	X_flag(char *str, va_list args)
+int	xx_flag(char *str, va_list args)
 {
 	int ret;
 
 	ret = 0;
 	if (is_prn_c(str, 'X'))
-		ret = tri_prn_X(str, args);
+		ret = tri_prn_xx(str, args);
 	else if (is_arg_c(str, 'X'))
-		ret = tri_arg_X(str, args);
+		ret = tri_arg_xx(str, args);
 	else if (is_moins_c(str, 'X'))
-		ret = tri_moins_X(str, args);
+		ret = tri_moins_xx(str, args);
 	else
-		ret = plus_X(str, args);
+		ret = plus_xx(str, args);
+	return (ret);
+}
+
+int	tri_prn_xx(char *str, va_list args)
+{
+	int ret;
+	int before;
+	int after;
+
+	ret = 0;
+	if (is_argb_d(str))
+		before = va_arg(args, int);
+	else
+		before = get_before_d(str);
+	if (is_arga_c(str, 'X'))
+		after = va_arg(args, int);
+	else
+		after = get_after_c(str, 'X');
+	if (is_moins_before_c(str, '.') == 1 && before > 0)
+		before = -before;
+	if (before < 0)
+		ret = tri_bneg_xx(before, after, args);
+	else
+		ret = tri_bpos_xx(str, before, after, args);
 	return (ret);
 }

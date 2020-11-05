@@ -2,7 +2,7 @@
 
 void	ft_putchar(char c)
 {
-	write(1, &c ,1);
+	write(1, &c, 1);
 }
 
 char	find_type(char *str)
@@ -10,19 +10,19 @@ char	find_type(char *str)
 	int i;
 
 	i = 0;
-	while(str[i] != 'X' && str[i] != 'x' && str[i] != 'd' && str[i] != 'i' && str[i] != 'c' && str[i] != 'p' && str[i] != 's' && str[i] != 'u')
+	while (str[i] != 'X' && str[i] != 'x' && str[i] != 'd' && str[i] != 'i' && str[i] != 'c' && str[i] != 'p' && str[i] != 's' && str[i] != 'u')
 		i++;
 	return (str[i]);
 }
 
 int		get_lgth_flag(char *str)
 {
-	int i;
-	char type_flag;
+	int		i;
+	char	type_flag;
 
 	i = 0;
 	type_flag = find_type(str);
-	while(str[i] != type_flag && str[i])
+	while (str[i] != type_flag && str[i])
 		i++;
 	i--;
 	return (i);
@@ -30,8 +30,8 @@ int		get_lgth_flag(char *str)
 
 int		ft_tri(char *str, va_list args)
 {
-	char type_flag;
-	int ret;
+	char	type_flag;
+	int		ret;
 
 	ret = 0;
 	type_flag = find_type(str);
@@ -46,30 +46,30 @@ int		ft_tri(char *str, va_list args)
 	else if (type_flag == 'u')
 		ret = u_flag(str, args);
 	else if (type_flag == 'x')
-		ret = x_flag(str, args);
+		ret = xx_flag(str, args);
 	else if (type_flag == 'X')
-		ret = X_flag(str, args);
+		ret = xx_flag(str, args);
 	return (ret);
 }
 
 int		ft_printf(const char *format, ...)
 {
-	char *str;	
-	va_list args;
-	int ret;
-	int lgt_flag;
+	char		*str;
+	va_list		args;
+	int			ret;
+	int			lgt_flag;
 
 	ret = 0;
-	va_start(args, format);	
+	va_start(args, format);
 	str = (char *)format;
-	while(*str)
+	while (*str)
 	{
-		if(*str != '%')
+		if (*str != '%')
 		{
 			ft_putchar(*str);
 			ret++;
 		}
-		else if(*str == '%' && *(str + 1) == '%')
+		else if (*str == '%' && *(str + 1) == '%')
 		{
 			ret++;
 			str++;

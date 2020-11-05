@@ -6,7 +6,7 @@ void	print_sp(int nb)
 		ft_putchar(' ');
 }
 
-void 	ft_putnbr_u(unsigned int nb)
+void	ft_putnbr_u(unsigned int nb)
 {
 	if (nb > 9)
 		ft_putnbr(nb / 10);
