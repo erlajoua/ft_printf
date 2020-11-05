@@ -8,11 +8,22 @@ void	ft_putchar(char c)
 char	find_type(char *str)
 {
 	int i;
+	int j;
 
-	i = 0;
-	while (str[i] != 'X' && str[i] != 'x' && str[i] != 'd' && str[i] != 'i' && str[i] != 'c' && str[i] != 'p' && str[i] != 's' && str[i] != 'u')
+	i = 1;
+	j = 0;
+	char *flags = "Xxdicpsu";
+
+	while (str[i])
+	{
+		j = 0;
+		while (str[i] != flags[j] && flags[j])
+			j++;
+		if (str[i] == flags[j])
+			return (types[j]);
 		i++;
-	return (str[i]);
+	}
+	return (0);
 }
 
 int		get_lgth_flag(char *str)
