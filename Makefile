@@ -21,6 +21,7 @@ SRCS    =	ft_printf.c \
 		utils.c \
 		utils2.c \
 		utils3.c \
+		utils4.c \
 		u_tri.c \
 		x_case.c \
 		x_flag.c \

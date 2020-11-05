@@ -15,6 +15,7 @@ int		    uint_lgth(unsigned int nb);
 int		    is_arga_c(char *str, char c);
 int		    is_argb_d(char *str);
 void		ft_putchar(char c);
+void		ft_putcharac(char c, int *ret);
 int		    get_after_c(char *str, char c);
 int		    is_prn_c(char *str, char c);
 void		ft_putnbr(int nb);
