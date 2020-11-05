@@ -98,6 +98,7 @@ int	    	bpos_zero_x(int nb, char *str);
 int		    special_zero_x(int before);
 int		    lgt_heX(unsigned int nb);
 void		print_sp(int nb);
+void		print_zr(int nb);
 int         tri_bneg_xx(int before, int after, va_list args);
 int         tri_bpos_xx(char *str, int before, int after, va_list args);
 int			xx_flag(char *str, va_list args);
