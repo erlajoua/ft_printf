@@ -2,13 +2,12 @@
 
 int main(void)
 {
-	int tab[] = {0, -12, -1, 0, 1, 13, 456};
-
-	for (int i = 0; i < 1; i++)
-	{
-		printf("%d\n", ft_printf("|%0X|", tab[i]));
-		printf("%d\n\n", printf("|%0X|", tab[i]));
-	}
+		printf("%d\n", ft_printf("|%0X|", 42));
+		printf("%d\n", ft_printf("|%0x|", 42));
+		printf("%d\n", ft_printf("|%0d|", 42));
+		printf("%d\n", ft_printf("|%0i|", 42));
+		printf("%d\n", ft_printf("|%0c|", 's'));
+		printf("%d\n", ft_printf("|%0s|", "salut"));
 		
 	return (0);
 
