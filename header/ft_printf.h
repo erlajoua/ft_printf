@@ -57,7 +57,7 @@ int	    xx_flag(char *str,va_list args);
 int 	xx_flag(char *str,va_list args);
 int	    lgt_hex(unsigned int nb);
 int	    ft_print_nil(int before);
-int	    ft_print_memory(int before,unsigned longlongstr);
+int	    ft_print_memory(int before,unsigned long long str);
 int 	tri_prn_s(char *str,va_list args);
 int	    tri_moins_s(char *str,va_list args);
 int     special_zero_u(int before);
