@@ -6,12 +6,12 @@
 # include <stdarg.h>
 # include <unistd.h>
 
-void	ft_put nbr(int nb);
-void		print_sp(int nb);
+void	ft_putnbr(int nb);
+void	print_sp(int nb);
 void	print_zr(int nb);
 void	ft_putnbr_u(unsigned int nb);
-void	ft_put nbr_x(unsigned int nb);
-void	ft_put nbr_xx(unsigned int nb);
+void	ft_putnbr_x(unsigned int nb);
+void	ft_putnbr_xx(unsigned int nb);
 void	ft_putstr(char *str);
 void	ft_putstrn(char *str,int n);
 void	ft_putcharac(char c,int*ret);
@@ -34,14 +34,14 @@ int	    tri_before_positive(char *str,int before,int after,va_list args);
 int	    bpos_aneg(int before,va_list args,char c,char *str);
 int	    tri_moins_d(char *str,va_list args);
 int	    plus_d(char *str,va_list args);
-int	    get_ nbatoi_c(char *str,char c);
+int	    get_nbatoi_c(char *str,char c);
 int 	bpos_apos(int before,int after,va_list args);
 int	    bpos_zero(int before,char *str);
 int	    is_zero_before_d(char *str);
 int	    special_zero(int before);
 int	    c_flag(char *str,va_list args);
 int	    is_moins_c(char *str,char c);
-int	    get_ nbatoi_c(char *str,char c);
+int	    get_nbatoi_c(char *str,char c);
 int	    p_flag(char *str,va_list args);
 int	    ft_strlen(char *str);
 int	    s_flag(char *str,va_list args);
