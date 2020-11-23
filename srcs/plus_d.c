@@ -39,7 +39,10 @@ int		bpos_else(int before, int nb)
 	nb < 0 ? ft_putchar('-') : 0;
 	while (nb_zr-- > 0)
 		ft_putchar('0');
-	nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
+	if (nb != -2147483648)
+		nb < 0 ? ft_putnbr(-nb) : ft_putnbr(nb);
+	else
+		ft_putstr("2147483648");
 	return (ret);
 }
 
