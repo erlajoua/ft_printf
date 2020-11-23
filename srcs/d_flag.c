@@ -22,6 +22,8 @@ int		d_flag(char *str, va_list args)
 
 	c = get_d_or_i(str);
 	ret = 0;
+	if (is_sp_before_c(str, c))
+		ft_putchar(' ');
 	if (is_prn_c(str, c))
 		ret = tri_prn_d(str, args);
 	else if (is_arg_c(str, c))

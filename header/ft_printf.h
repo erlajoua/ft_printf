@@ -113,6 +113,7 @@ int		per_bpos_apos(int before,int after,char c);
 int		is_zero_bef(char *str);
 int		tri_before_pos_per(int before,int after,char *str,va_list args);
 int		tri_before_neg_per(int before,int after,va_list args);
+int		is_sp_before_c(char *str, char c);
 char    get_d_or_i(char *str);
 
 #endif
